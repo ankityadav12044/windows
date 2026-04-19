@@ -24,7 +24,7 @@
 }
 
 .about_content {
-  width: 50%;
+  width: 90%;
 }
 
 .about_content .top {
@@ -35,14 +35,19 @@
 }
 
 .image_sections {
-  width: 50%;
+  width: 100%;
   display: flex;
   gap: 20px;
+  text-align: right;
+}
+
+.img_1{
+  width: 100%;
 }
 
 .img_1 img {
-  width: 250px;
-  height: 300px;
+  width: 60%;
+  height: 500px;
   border-radius: 20px;
 }
 
@@ -102,4 +107,25 @@
   font-size: 12px;
   position: relative;
   right: 10px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .about-main{
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .img_1 img {
+
+    height: auto;
+  }
+
+  .about_content {
+    width: 100%;
+  }
+
+  .image_sections{
+    text-align: center;
+  }
 }

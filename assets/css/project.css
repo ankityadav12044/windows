@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows & Doors Projects</title>
-  <style>
-    /* ========== BASE STYLES ========== */
-    * {
+  /* ========== BASE STYLES ========== */
+    /* * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+    } */
 
     body {
       /* Dark blue background matching the image */
-      background-color: #172a3a; 
-      padding: 60px 20px;
+      /* background-color: #172a3a;  */
+      /* padding: 60px 20px; */
     }
 
     .projects-container {
@@ -50,6 +43,7 @@
     .grid-item img {
       width: 100%;
       height: 100%;
+      cursor: pointer;
       object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
     }
@@ -86,7 +80,7 @@
       .item-large {
         grid-column: 1 / -1; /* Large item takes full width */
         grid-row: auto;
-        height: 400px; /* Fixed height for tablet */
+
       }
     }
 
@@ -94,46 +88,11 @@
       .bento-grid {
         grid-template-columns: 1fr; /* Switch to 1 column on mobile */
         grid-auto-rows: 300px;
+                padding: 0px 10px;
+                gap: 10px;
       }
       .title-box {
         font-size: 1rem;
         padding: 12px 20px;
       }
     }
-  </style>
-</head>
-<body>
-
-  <section class="projects-container">
-    <div class="bento-grid">
-      
-      <div class="grid-item item-large">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Commercial Building Windows">
-        <div class="title-box">Commercial Building Windows</div>
-      </div>
-
-      <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Bathroom Window">
-        <div class="title-box">Bathroom Window</div>
-      </div>
-
-      <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Office Window">
-        <div class="title-box">Office Window</div>
-      </div>
-
-      <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=600&q=80" alt="Lobby Window">
-        <div class="title-box">Lobby Window</div>
-      </div>
-
-      <div class="grid-item">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Home Door & Window">
-        <div class="title-box">Home Door & Window</div>
-      </div>
-
-    </div>
-  </section>
-
-</body>
-</html> 

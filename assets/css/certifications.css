@@ -1,0 +1,134 @@
+/* Base resets and section styling */
+.certifications-section {
+  padding: 60px 20px;
+  /* background-color: #fcfcfc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; */
+  /* color: #1a1a1a; */
+}
+
+/* .container {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #666;
+}
+
+/* Grid Layout - Mobile First */
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop - Displays 3 on top, 2 centered below */
+@media (min-width: 1024px) {
+  .cert-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  
+  /* Make the first 3 items take 2 columns each (3 in a row) */
+  .cert-card:nth-child(1),
+  .cert-card:nth-child(2),
+  .cert-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  /* Center the last 2 items on the second row */
+  .cert-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .cert-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
+
+/* Card Styling & Animations */
+.cert-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  aspect-ratio: 4/3;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  /* Hardware acceleration for smooth animation */
+  transform: translateZ(0); 
+}
+
+.cert-image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 34 / 45;
+    object-fit: fill;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Overlay Styling */
+.cert-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.overlay-contents h3 {
+  color: #ffffff;
+  font-size: 20px;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.overlay-contents p {
+  color: #e0e0e0;
+  font-size: 14px;
+  margin: 0;
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.05s;
+}
+
+/* Hover Effects */
+.cert-card:hover .cert-image {
+  transform: scale(1.08);
+}
+
+.cert-card:hover .cert-overlay {
+  opacity: 1;
+}
+
+.cert-card:hover .overlay-contents h3,
+.cert-card:hover .overlay-contents p {
+  transform: translateY(0);
+}

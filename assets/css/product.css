@@ -140,7 +140,7 @@
 }
 
 .project-title {
-    color: #0a1128;
+    color: #0a1128 !important;
     margin: 0;
     font-size: 20px;
 }

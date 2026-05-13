@@ -131,13 +131,15 @@ object-position: center;
   gap: 30px;
 }
 
-.nav-menu li {
+.nav-menu li a {
   cursor: pointer;
   transition: color 0.3s ease-in-out;
   font-size: 17px;
+  text-decoration: none;
+  color: black;
 }
 
-.nav-menu li:hover {
+.nav-menu li a:hover {
   color: #ff7a1a;
   text-decoration: underline;
 }
@@ -218,6 +220,8 @@ object-position: center;
     opacity: 1;
   }
 }
+
+
 
 
 

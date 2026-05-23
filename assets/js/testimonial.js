@@ -1,23 +1,31 @@
-
-        var swiper = new Swiper(".testimonial", {
-            slidesPerView: 1, // Shows 1 slide on mobile
-            spaceBetween: 30, // Space between cards
-            loop: true, // Infinite looping
-            grabCursor: true, // Shows hand cursor on hover
+var swiper = new Swiper(".testimonial", {
+            loop: true,
+            grabCursor: true,
+            autoplay: {
+                delay: 3000, // Time between slides (3 seconds)
+                disableOnInteraction: false, // Continue autoplay after user interaction
+            },
+            spaceBetween: 40, // Space between cards
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true, // Allows clicking the lines to change slides
+                clickable: true,
             },
-            autoplay: {
-                delay: 4000, // Auto scrolls every 4 seconds
-                disableOnInteraction: false, // Keeps auto-playing after user clicks
-            },
+            // BREAKPOINTS: Control layout for Desktop & Mobile
             breakpoints: {
-                // When screen width is >= 1024px (Desktops)
+                // Mobile device width (0px to 767px) -> Shows 2 slides
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                // Tablet width (768px to 1023px) -> Shows 2 slides
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                // Laptop/Desktop width (1024px and above) -> Shows 3 slides
                 1024: {
-                    slidesPerView: 2, // Shows 2 slides side-by-side
+                    slidesPerView: 3,
                     spaceBetween: 40,
-                }
-            }
+                },
+            },
         });
-    

@@ -1,10 +1,11 @@
  .container-blog {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         /* --- Header Section --- */
-        .section-header {
+        .section-headers {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -37,7 +38,7 @@
 
         .btn-view-all {
             background-color: var(--dark-blue);
-            color: var(--white);
+            color: #ffff;
             text-decoration: none;
             padding: 14px 30px;
             border-radius: 30px;
@@ -58,20 +59,23 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            padding-bottom: 15px;
         }
 
         .blog-card {
-            background-color: var(--white);
-            border-radius: 24px;
-            padding: 24px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+    background-color: #fffdfd;
+    border-radius: 24px;
+    padding: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 3px 8px 3px #8080804d;
+}
+        
 
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(18, 25, 54, 0.08);
+            box-shadow: 0 3px 8px 3px rgba(2, 6, 21, 0.08);
         }
 
         /* Image & Date Badge Wrapper */
@@ -102,7 +106,7 @@
         }
 
         /* Card Content */
-        .card-content {
+        .card-contents {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -125,7 +129,7 @@
             color: #d1d5e5;
         }
 
-        .card-content h3 {
+        .card-contents h3 {
             color: var(--dark-blue);
             font-size: 20px;
             font-weight: 600;
@@ -135,11 +139,11 @@
             cursor: pointer;
         }
 
-        .card-content h3:hover {
+        .card-contents h3:hover {
             color: var(--primary-orange);
         }
 
-        .card-content p {
+        .card-contents p {
             color: var(--text-gray);
             font-size: 14px;
             line-height: 1.7;
@@ -181,7 +185,7 @@
         }
 
         @media (max-width: 768px) {
-            .section-header {
+            .section-headers {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;

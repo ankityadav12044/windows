@@ -219,7 +219,7 @@ justify-content: center;
     /* position: absolute;
     z-index: 102;
     top: 58%; */
-    width: 100%;
+    width: 0%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,6 +231,7 @@ justify-content: center;
     z-index: 8;
     bottom: 83px;
     animation: rotate 20s linear infinite;
+    height: 210px;
 }
 
 @keyframes rotate {
@@ -263,7 +264,7 @@ justify-content: center;
     background: white;
     /* width: 7%; */
     /* height: 74px; */
-    padding: 39px 49px;
+    padding: 28px 39px;
     border-radius: 80px;
     border: 1px solid var(--primary-orange);
 }
@@ -274,8 +275,9 @@ justify-content: center;
 }
 .triangle-shape{
     position: absolute;
-    bottom: 227px;
+    bottom: 240px;
     z-index: 6;
+        filter: grayscale(1) brightness(1.2);
 }
 
 /* services */

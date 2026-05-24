@@ -184,7 +184,7 @@
 }
 
 .project-card:hover .project-title {
-    color: white;
+    color: white !important;
     cursor: pointer;
 }
 /* --- Responsive Adjustments --- */

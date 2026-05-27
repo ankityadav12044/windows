@@ -80,7 +80,7 @@ body{
 /* MAIN CONTENT */
 
 .home_contact{
-    /* min-height:550px; */
+    min-height:600px;
     width:100%;
     display:flex;
     flex-direction:column;

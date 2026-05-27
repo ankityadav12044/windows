@@ -101,7 +101,7 @@
         }
 
         .stars {
-            color: var(--primary-orange);
+            color: #ffc107;
             font-size: 18px;
             margin-bottom: 18px;
             letter-spacing: 2px;

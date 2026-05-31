@@ -1,3 +1,10 @@
+document.querySelectorAll('.loader-wrapper').forEach(loader => {
+    setTimeout(() => {
+        loader.style.display = 'none';
+    }, 2000);
+});
+
+
 window.addEventListener("scroll", function () {
   let navbar = document.getElementById("navbar");
 
@@ -43,3 +50,6 @@ window.addEventListener('click', (e) => {
         menu.classList.remove('active');
     }
 });
+
+
+

@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Showroom Locator</title>
-
-<style>
-
 *{
     margin:0;
     padding:0;
@@ -99,60 +90,14 @@
     font-weight:600;
     letter-spacing:1px;
 }
-
+.loader-wrapper.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+}
 .window-loader p{
     color:rgba(255,255,255,.7);
     margin-top:8px;
     font-size:14px;
     letter-spacing:2px;
 }
-
-</style>
-</head>
-
-<body>
-
-<div class="loader-wrapper">
-
-    <div class="window-loader">
-
-        <div class="window-frame">
-
-            <div class="window-left"></div>
-            <div class="window-right"></div>
-
-        </div>
-
-        <h3>UPVC Windows</h3>
-        <p>Crafting Better Views...</p>
-
-    </div>
-
-</div>
-
-<script>
-
-function showRoom(type){
-
-document
-.querySelectorAll('.showroom-card')
-.forEach(card=>card.classList.remove('active'));
-
-if(type==="bokaro"){
-document
-.getElementById('bokaro-card')
-.classList.add('active');
-}
-
-if(type==="bihar"){
-document
-.getElementById('bihar-card')
-.classList.add('active');
-}
-
-}
-
-</script>
-
-</body>
-</html>

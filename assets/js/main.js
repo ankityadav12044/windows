@@ -163,3 +163,10 @@ if (scrollTracker) {
     window.addEventListener("scroll", updateScrollTracker, { passive: true });
     updateScrollTracker();
 }
+// window.addEventListener('load', function() {
+//     const loader = document.querySelector('.loader-wrapper');
+//     if (loader) {
+//         loader.classList.add('is-hidden');
+//         setTimeout(() => loader.remove(), 1000);
+//     }
+// });

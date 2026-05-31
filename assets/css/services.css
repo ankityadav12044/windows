@@ -725,7 +725,7 @@ gap: 20px;
     }
 
     .experience-badge {
-        position: static;
+        position: absolute;
         margin-top: 20px;
         width: 100px;
     }
@@ -753,7 +753,13 @@ gap: 20px;
 
     .trust-grid {
         grid-template-columns: 1fr;
+        padding: 0px 10px;
     }
+
+    .services-section {
+    padding: 20px 0;
+    background: white;
+}
 
     .process-timeline {
         flex-direction: column;
@@ -853,6 +859,11 @@ gap: 20px;
     .faq-header h4 {
         font-size: 14px;
     }
+
+    .about-services {
+    padding: 80px 17px;
+    /* background: #f8fafb; */
+}
 }
 
 
@@ -953,6 +964,7 @@ gap: 20px;
 
     .service_cards{
         grid-template-columns:1fr;
+        padding:0px 20px;
     }
 }
 

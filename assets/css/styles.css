@@ -1321,4 +1321,23 @@ justify-content: center;
     /* background-color: var(--bg-color); */
     padding: 2px 20px;
     }
+
+
+    .home_contact {
+    /* min-height: 600px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    margin-top: 90px;
+}.home_contact h1 {
+    font-size: 28px;
+    line-height: 35px;
+    font-family: var(--main-font);
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 }

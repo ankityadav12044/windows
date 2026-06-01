@@ -1,172 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium uPVC Loader</title>
+
+<style>
+*{
     margin:0;
-    background:#07182f;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-.loader{
+body{
+    background:#f5f7fa;
+}
+
+/* Loader */
+.loader-screen{
     position:fixed;
     inset:0;
+    background:
+    radial-gradient(circle at top left,#ff7a1a22,transparent 40%),
+    radial-gradient(circle at bottom right,#ff7a1a22,transparent 40%),
+    #0a11284b;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
     align-items:center;
-    background:linear-gradient(
-        135deg,
-        #07182f,
-        #0d2d57
-    );
-    z-index:9999;
+    justify-content:center;
+    z-index:99999;
+    overflow:hidden;
+}
+
+.loader-card{
+    text-align:center;
 }
 
 .window{
-    width:180px;
-    height:180px;
-    border:8px solid #fff;
+    width:140px;
+    height:140px;
+    margin:auto;
     position:relative;
-    overflow:hidden;
-    border-radius:12px;
-    box-shadow:
-    0 0 40px rgba(255,255,255,.15),
-    0 0 80px rgba(0,153,255,.2);
+    animation:float 3s ease-in-out infinite;
 }
 
-.window::before{
+.frame{
+    width:100%;
+    height:100%;
+    border:4px solid #ff7a1a;
+    border-radius:18px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:
+    0 0 30px rgba(255,122,26,.4),
+    inset 0 0 25px rgba(255,122,26,.15);
+}
+
+.frame::before{
     content:"";
     position:absolute;
-    left:50%;
     top:0;
-    width:6px;
+    left:50%;
+    width:3px;
     height:100%;
-    background:#fff;
+    background:#ff7a1a;
     transform:translateX(-50%);
 }
 
-.window::after{
+.frame::after{
     content:"";
     position:absolute;
     top:50%;
     left:0;
     width:100%;
-    height:6px;
-    background:#fff;
+    height:3px;
+    background:#ff7a1a;
     transform:translateY(-50%);
 }
 
 .glass{
     position:absolute;
-    background:linear-gradient(
-        135deg,
-        #dff6ff,
-        #7fd9ff
+    inset:0;
+    background:
+    linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.35) 50%,
+        transparent 80%
     );
+    animation:shine 2.5s linear infinite;
 }
 
-.glass-left{
-    width:50%;
-    height:50%;
-    top:0;
-    left:0;
-}
-
-.glass-right{
-    width:50%;
-    height:50%;
-    top:0;
-    right:0;
-}
-
-.shine{
+.ring{
     position:absolute;
-    top:-50%;
-    left:-120%;
-    width:60px;
-    height:300%;
-    background:rgba(255,255,255,.4);
-    transform:rotate(25deg);
-    animation:shine 2s infinite;
+    inset:-20px;
+    border-radius:50%;
+    border:2px dashed rgba(255,122,26,.4);
+    animation:rotate 8s linear infinite;
+}
+
+h1{
+    color:#fff;
+    margin-top:35px;
+    font-size:28px;
+    letter-spacing:4px;
+    font-weight:700;
+    display:none;
+}
+
+p{
+    color:#fff;
+    margin-top:30px;
+    font-size:14px;
+}
+
+.loading{
+    margin-top:25px;
+    width:260px;
+    height:8px;
+    background:rgba(255,255,255,.08);
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.loading span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:
+    linear-gradient(
+        90deg,
+        #ff7a1a,
+        #ffb067
+    );
+    border-radius:50px;
+}
+
+.percent{
+    color:#ff7a1a;
+    font-size:18px;
+    font-weight:600;
+    margin-top:15px;
+}
+
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 @keyframes shine{
-
-    0%{
-        left:-120%;
+    from{
+        transform:translateX(-120%);
     }
-
-    100%{
-        left:160%;
+    to{
+        transform:translateX(120%);
     }
-
 }
 
-.loader h2{
-    margin-top:30px;
-    color:#fff;
-    letter-spacing:5px;
-    font-size:24px;
-}
-
-.loader p{
-    color:#9fb7d1;
-    margin-top:8px;
-    letter-spacing:2px;
-}
-
-.loader::after{
-    content:"";
-    width:180px;
-    height:4px;
-    margin-top:25px;
-    border-radius:50px;
-    background:rgba(255,255,255,.15);
-    position:relative;
-}
-
-.loader::before{
-    content:"";
-    width:0;
-    height:4px;
-    margin-top:340px;
-    position:absolute;
-    background:#3bb3ff;
-    border-radius:50px;
-    animation:progress 2.5s infinite;
-}
-
-@keyframes progress{
-
-    0%{
-        width:0;
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
     }
-
-    100%{
-        width:180px;
+    50%{
+        transform:translateY(-10px);
     }
-
 }
-    </style>
+</style>
 </head>
 <body>
-    <div class="loader">
 
-    <div class="window">
+<div class="loader-screen" id="loader">
 
-        <div class="glass glass-left"></div>
-        <div class="glass glass-right"></div>
+    <div class="loader-card">
 
-        <div class="shine"></div>
+        <div class="window">
+
+            <div class="ring"></div>
+
+            <div class="frame">
+                <div class="glass"></div>
+            </div>
+
+        </div>
+
+        <h1>UPVC WINDOWS</h1>
+
+        <p>Crafting Premium Views For Modern Homes</p>
+
+        <div class="loading">
+            <span id="progress"></span>
+        </div>
+
+        <div class="percent" id="percent">0%</div>
 
     </div>
 
-    <h2>UPVC WINDOWS</h2>
-    <p>Crafting Better Views</p>
-
 </div>
+
+<script>
+let count = 0;
+
+const percent = document.getElementById("percent");
+const progress = document.getElementById("progress");
+const loader = document.getElementById("loader");
+
+const interval = setInterval(() => {
+
+    count++;
+
+    percent.innerHTML = count + "%";
+    progress.style.width = count + "%";
+
+    if(count >= 100){
+
+        clearInterval(interval);
+
+        setTimeout(() => {
+
+            loader.style.transition = "all .8s ease";
+            loader.style.opacity = "0";
+            loader.style.visibility = "hidden";
+
+        },300);
+
+    }
+
+},20);
+</script>
+
 </body>
 </html>

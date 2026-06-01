@@ -30,6 +30,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 
 <body>
@@ -1242,26 +1243,113 @@
         </span>
     </button>
 
-    <div class="loader-wrapper">
+  <div class="loader-screen" id="loader">
 
-    <div class="window-loader">
+    <div class="loader-card">
 
-        <div class="window-frame">
+        <div class="window">
+            <div class="ring"></div>
 
-            <div class="window-left"></div>
-            <div class="window-right"></div>
-
+            <div class="frame">
+                <div class="glass"></div>
+            </div>
         </div>
 
-        <h3>UPVC Windows</h3>
-        <p>Crafting Better Views...</p>
+        <p>Crafting Premium Views For Modern Homes</p>
+
+        <div class="loading">
+            <span id="progress"></span>
+        </div>
+
+        <div class="percent" id="percent">0%</div>
 
     </div>
 
 </div>
+<div class="lead-toggle" id="openLead">
+    <i class="fa-solid fa-envelope-open-text"></i>
+</div>
 
+<div class="lead-box" id="leadBox">
+
+    <div class="lead-header">
+
+        <h3>
+            🪟 Free Quote
+        </h3>
+
+        <button id="closeLead">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <div class="lead-body">
+
+        <span class="online-status">
+            ● Expert Available
+        </span>
+
+        <h4>
+            Get Instant uPVC Consultation
+        </h4>
+
+        <p>
+            Fill your details and receive a quotation.
+        </p>
+
+     <form id="quoteForm" class="quote-form">
+
+    <div class="field">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" name="name" placeholder="Full Name" required>
+    </div>
+
+    <div class="field">
+        <i class="fa-solid fa-phone"></i>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+    </div>
+
+    <div class="field">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+
+    <!-- PRODUCT FIELD -->
+    <div class="field select-field">
+        <i class="fa-solid fa-window-maximize"></i>
+        <select name="product" required>
+            <option value="">Select Product</option>
+            <option>Sliding Window</option>
+            <option>Casement Window</option>
+            <option>Tilt & Turn Window</option>
+            <option>French Window</option>
+            <option>Sliding Door</option>
+        </select>
+    </div>
+
+    <!-- MESSAGE FIELD -->
+    <div class="field textarea-field">
+        <i class="fa-solid fa-comment-dots"></i>
+        <textarea
+            name="message"
+            placeholder="Tell us your requirement..."
+            rows="4"
+            required></textarea>
+    </div>
+
+    <button type="submit" id="submit">
+        Request Quote
+    </button>
+
+</form>
+
+    </div>
+
+</div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- ✅ Tumhara JS (ALWAYS last) -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/header.js"></script>

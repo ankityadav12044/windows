@@ -1,0 +1,435 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.contact_header{
+    width: 100%;
+}
+
+.banner_contact{
+    max-width: var(--max-width);
+    background-image: url("../img/contact.png");
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: right;
+    background-size: cover;
+    max-width: var( --max-width);
+    margin-inline: auto;
+    padding: 100px;
+}
+.banner_contact h1{
+    font-size: 30px;
+    color: var(--primary-orange);
+    font-family: var(--main-font);
+}
+.banner_contact p{
+    font-size: 30px;
+    font-family: var(--main-font);
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--primary-orange);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.banner_contact p a{
+    font-size: 30px;
+    font-family: var(--main-font);
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+   text-decoration: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.banner_contact p a:hover{
+    text-decoration: underline var(--primary-orange);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    transition: all 0.1s ease-in-out;
+}   
+.contact_address{
+    width: 100%;
+    padding: 5%;
+}
+.box_section{
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; 
+}
+.box_one{
+    height: 250px;
+    width: 350px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #fff8f2; */
+    background-image: url("../img/contact_1.png");
+    background-size: cover;
+    border-radius: 20px;
+    border: none;
+}
+.icon_box{
+    height: 70px;
+    width: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var( --primary-orange );
+    border-radius: 10px;
+    border: none;
+}
+.icon_box i{
+    font-size: 30px;
+    color: white;
+}
+.box_section h2{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--main-font);
+    margin-top: 10px;
+}
+.box_section p{
+    font-size: 18px;
+    font-family: var(--main-font);
+    color: grey;
+    font-weight: 300;
+    margin-top: 10px;
+    text-align: center;
+}
+.box_two{
+    height: 250px;
+    width: 350px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: #17342f; */
+    background-image: url("../img/con1.jpg");
+    background-size: cover;
+    border-radius: 10px;
+    border: none;
+}
+.icon_two{
+    height: 70px;
+    width: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var( --secondary-clr );
+    border-radius: 20px;
+    border: none;
+}
+.icon_two i{
+    font-size: 30px;
+    color: white;
+}
+.heading_two{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--main-font);
+    margin-top: 10px;
+    color: black;
+}
+.paragrph_two{
+    font-size: 18px;
+    font-family: var(--main-font);
+    color: whitesmoke;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+.box_three{
+     height: 250px;
+    width: 350px;
+    border: 1px solid rgba(110, 107, 107, 0.194);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: white; */
+    background-image: url("../img/email_img.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+.icon_three{
+    height: 70px;
+    width: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #367CD9;
+    border-radius: 20px;
+    border: none;
+}
+.icon_three i{
+    font-size: 30px;
+    color: white;
+}
+.heading_three{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--main-font);
+    margin-top: 10px;
+    color: black;
+}
+.paragrph_three{
+    font-size: 18px;
+    font-family: var(--main-font);
+    color: whitesmoke;
+    font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+}
+.combo_map_contact{
+    padding: 60px 0 80px;
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.map_section{
+    width: 60%;
+    height: 760px; /* increased height for larger map display */
+    position: relative;
+}
+.map_section iframe{
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 18px 42px rgba(10,17,40,0.14);
+}
+
+.contact_form{
+    width: 38%;
+    position: relative;
+}
+
+.contact-card{
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(10,17,40,0.08);
+    border: 1px solid rgba(10,17,40,0.03);
+         height: 601px;
+}
+
+.contact-card h2{font-size:22px;color:#0a1128;margin-bottom:14px}
+.contact-card h3{font-size:24px;color:#0a1128;margin-bottom:12px}
+.contact-card h3 .accent, .accent{color:var(--primary-orange)}
+
+.contact-card-form .input-row{display:flex;gap:14px;margin-bottom:12px}
+.contact-card-form .input-row .input-group{flex:1;display:flex;align-items:center;background:#f7f4ef;padding:12px 14px;border-radius:12px}
+.contact-card-form .input-row .input-group.full{width:100%}
+.contact-card-form .input-group.textarea{align-items:flex-start;padding:12px}
+.contact-card-form .input-group i{color:#ff7a1a;margin-right:12px;font-size:18px;background:#fff0e8;padding:8px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
+.contact-card-form input,.contact-card-form textarea{border:none;background:transparent;outline:none;font-size:15px;font-family:var(--main-font);color:#0a1128;width:100%}
+
+.form-actions{display:flex;align-items:center;gap:14px;margin-top:16px}
+.btn-primary{background:linear-gradient(90deg,#ff7a1a,#ff9a3c);color:#fff;border:none;padding:12px 22px;border-radius:28px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.privacy-note{color:#6b7280;font-size:13px;margin-left:6px;display:flex;align-items:center;gap:8px}
+
+/* Map open button */
+.map-open-btn{position:absolute;top:22px;left:22px;background:#fff;padding:10px 16px;border-radius:999px;color:#0a1128;text-decoration:none;box-shadow:0 12px 30px rgba(10,17,40,0.10);display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px}
+.map-open-btn i{color:#4285F4;background:#ffffff;padding:6px;border-radius:999px;box-shadow:0 6px 18px rgba(66,133,244,0.12)}
+
+/* Inputs focus */
+.contact-card-form .input-group:focus-within{box-shadow:0 6px 18px rgba(10,17,40,0.06);transform:translateY(-2px)}
+
+/* Responsive adjustments */
+@media screen and (max-width: 900px){
+    .combo_map_contact{flex-direction:column;        padding: 9px;         margin-bottom: 45px;}
+    .map_section{width:100%;height:460px}
+    .contact_form{width:100%;margin-top:16px}
+    .contact-card-form .input-row{flex-direction:column}
+
+    .contact-card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(10, 17, 40, 0.08);
+    border: 1px solid rgba(10, 17, 40, 0.03);
+    height: 655px;
+    }
+
+    .custom-marker{
+        width: 163px;
+    }
+
+    .marker-text strong {
+    font-size: 11px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+    .form-actions {
+    display: flex;
+   
+    gap: 14px;
+    margin-top: 16px;
+    flex-direction: column;
+    align-items: self-start;
+   
+    }
+}
+
+
+/* cleaned duplicate .combo_map_contact removed */
+.contact_certificate{
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  margin-top: 100px;
+}
+
+.contact_certificate{
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  margin-top: 100px;
+}
+
+
+@media screen and (max-width:500px) {
+    .box_section {
+        flex-direction: column;
+    }
+    .box_one {
+    height: 300px;
+    width: 100%;
+    }
+    .box_two {
+    height: 300px;
+    width: 100%;
+    }
+    .box_three{
+     height: 300px;
+     width: 100%;
+    }
+    .contact_form {
+               right: 0px;
+        width: 100%;
+        height: 620px;
+    
+    }
+    
+.contact_certificate {
+    margin-top: 350px;
+}
+.banner_contact p {
+    font-size: 16px;
+}
+
+.banner_contact{
+    height: 300px;
+}
+.banner_contact h1 {
+    font-size: 18px;
+}
+}
+
+
+
+.map-wrapper {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    background-color: #e5e3df;
+    border: 5px solid #f9f9fb;
+    position: relative; /* Essential for placing the marker overlay */
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 1; /* Map stays in background */
+}
+
+/* --- Custom Marker Highlight Styling --- */
+.custom-marker {
+    position: absolute;
+  top: 48%;
+    left: 67%;
+    transform: translate(-50%, -100%); /* Centers the marker exactly at the pin's bottom point */
+    margin-top: -15px; /* Adjust slightly based on your map center */
+    background: #ffffff;
+    padding: 8px 16px 8px 8px;
+    border-radius: 40px; /* Makes it a pill shape */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* Ensures it stays above the iframe */
+    pointer-events: none; /* Allows user to click "through" the bubble to interact with the map */
+}
+
+/* The little triangle pointing down */
+.custom-marker::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.marker-icon {
+    background: #e73e34; /* Google Maps Red */
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+
+.marker-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.marker-text strong {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.marker-text span {
+    font-size: 11px;
+    color: #555;
+    margin-top: 2px;
+}

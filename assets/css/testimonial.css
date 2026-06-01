@@ -1,0 +1,206 @@
+:root {
+            --primary-orange: #E85D2C;
+            --dark-blue: #0B132B; /* Dark background from your image */
+            --bg-light: #ffffff;
+            --text-gray: #A0A4AB;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+            margin: 0;
+            /* padding: 50px 20px; */
+        }
+
+        .container-testimonial {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden; /* Prevents shadow clipping */
+            padding: 20px;
+        }
+
+        /* --- Header Section --- */
+        .header-tops {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .title-area .subtitle {
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 4px;
+        }
+
+        .title-area .subtitle i {
+            color: #6c757d;
+        }
+
+        .title-area h2 {
+            color: var(--dark-blue);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .btn-view-all {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-all:hover {
+            background-color: var(--primary-orange);
+        }
+
+        /* --- Swiper Container Styles --- */
+        .swiper {
+            width: 100%;
+            /* Extra padding to ensure the box-shadows are not cut off */
+            padding: 15px 15px 60px 15px; 
+        }
+
+        .swiper-slide {
+            height: auto; /* Makes cards equal height */
+        }
+
+        /* --- Testimonial Cards Section --- */
+        .card {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-content {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 35px;
+            border-radius: 15px;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            /* The orange shadow effect as per image_4936bd.png */
+            box-shadow: 10px 10px 0px 0px var(--primary-orange);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            display: flex;
+    justify-content: space-between;
+        }
+
+        .qutes{
+            color: white;
+            font-size: 24px;
+        }
+
+        .card-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-top: 0;
+            margin-bottom: 30px;
+            flex-grow: 1; /* Pushes author to the bottom evenly */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .author .fa{
+            padding: 8px 5px;
+    background: white;
+    color: var(--accent);
+    border-radius: 22px;
+    font-size: 24px;
+    /* margin-left: -7px; */
+    /* position: relative; */
+    /* left: -3px; */
+    width: 41px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            color: var(--primary-orange);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+
+        .author-info span {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* --- Swiper Pagination Customization --- */
+        .swiper-pagination-bullet {
+            width: 25px;
+            height: 5px;
+            background-color: #D1D5DB;
+            border-radius: 3px;
+            opacity: 1;
+            transition: all 0.3s ease;
+            margin: 0 6px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--primary-orange);
+            width: 45px;
+        }
+
+        .swiper-horizontal>.swiper-pagination-bullets {
+            bottom: 0px; 
+        }
+
+        /* --- Header Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .header-tops {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .title-area h2 {
+                font-size: 22px;
+            }
+            .btn-view-all {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+
+            body{
+                padding: 0%;
+            }
+        }

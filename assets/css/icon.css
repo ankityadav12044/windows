@@ -1,0 +1,84 @@
+ :root {
+            --primary-blue: #16365D; 
+            --primary-orange: #E26A2C; 
+            --bg-color: #F8F9FA; 
+            --divider-color: #D1D5DB; 
+        }
+        body {
+            margin: 0;
+            /* font-family: 'Poppins', sans-serif; */
+            /* background-color: #fff; */
+        }
+        .stats-section {
+            /* background-color: var(--bg-color); */
+            padding: 40px 0px;
+            display: flex;
+            justify-content: center;
+        }
+        .stats-grid {
+        display: flex;
+        justify-content: space-around;
+            max-width: 1900px;
+            width: 100%;
+        }
+
+        .stat_1{
+            display: flex;
+            gap: 10px;
+                animation: autoScroll 10s linear infinite reverse;
+        }
+
+        .stat_2{
+            display: flex;
+            gap: 10px;
+                animation: autoScroll 10s linear infinite reverse;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 20px;
+            /* border-right: 1px solid var(--divider-color); */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-item img{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 12px;
+        }
+
+        .stat-item:nth-child(4) {
+            border-right: none;
+        }
+        .stat-number-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 42px;
+            font-weight: 700;
+            flex-direction: column;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: var(--primary-orange);
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0;
+        }
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px 0;
+            }
+            .stat-item { border-right: 1px solid var(--divider-color); }
+            .stat-item:nth-child(2n) { border-right: none; }
+        }
+        @media (max-width: 576px) {
+            .stats-grid { grid-template-columns: 1fr; gap: 40px 0; }
+            .stat-item { border-right: none; border-bottom: 1px solid var(--divider-color); padding-bottom: 30px;        width: 190px; }
+            .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+        }

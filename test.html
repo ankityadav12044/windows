@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bokaro Steel City Map with Highlight</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f4f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.map-wrapper {
+    width: 100%;
+    max-width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    background-color: #e5e3df;
+    border: 5px solid #f9f9fb;
+    position: relative; /* Essential for placing the marker overlay */
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 1; /* Map stays in background */
+}
+
+/* --- Custom Marker Highlight Styling --- */
+.custom-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%); /* Centers the marker exactly at the pin's bottom point */
+    margin-top: -15px; /* Adjust slightly based on your map center */
+    background: #ffffff;
+    padding: 8px 16px 8px 8px;
+    border-radius: 40px; /* Makes it a pill shape */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10; /* Ensures it stays above the iframe */
+    pointer-events: none; /* Allows user to click "through" the bubble to interact with the map */
+}
+
+/* The little triangle pointing down */
+.custom-marker::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+
+.marker-icon {
+    background: #e73e34; /* Google Maps Red */
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+
+.marker-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.marker-text strong {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.marker-text span {
+    font-size: 11px;
+    color: #555;
+    margin-top: 2px;
+}
+    </style>
+
+</head>
+<body>
+
+    <div class="map-wrapper">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.83187895393!2d86.08253164999999!3d23.64459895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4230eb30f3a67%3A0x6d90d8a2455828de!2sBokaro%20Steel%20City%2C%20Jharkhand!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <div class="custom-marker">
+            <div class="marker-icon">
+                <svg viewBox="0 0 24 24" fill="white" width="18px" height="18px">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+            </div>
+            <div class="marker-text">
+                <strong>Bokaro Steel City</strong>
+                <span>Jharkhand, India</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -5,6 +5,29 @@ document.querySelectorAll('.loader-wrapper').forEach(loader => {
 });
 
 
+const scrollTracker = document.querySelector(".scroll-tracker");
+
+if (scrollTracker) {
+    const updateScrollTracker = () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 360 : 0;
+
+        scrollTracker.style.setProperty("--scroll-progress", `${progress}deg`);
+        scrollTracker.classList.toggle("is-visible", scrollTop > 120);
+    };
+
+    scrollTracker.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    window.addEventListener("scroll", updateScrollTracker, { passive: true });
+    updateScrollTracker();
+}
+
 let count = 0;
 
 const percent = document.getElementById("percent");
@@ -158,6 +181,18 @@ window.addEventListener("scroll", function () {
     navbar.classList.add("scrolled");
   } else {
     navbar.classList.remove("scrolled");
+  }
+});
+
+window.addEventListener("scroll", function () {
+  let email = document.querySelector(".lead-toggle");
+
+  if (window.scrollY > 150) {
+    email.style.bottom = "86px";
+    email.style.transition = "all .8s ease";
+  } else {
+    email.style.bottom = "5px";
+    email.style.transition = "all .8s ease";
   }
 });
 

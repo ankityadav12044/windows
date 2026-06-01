@@ -141,32 +141,4 @@ if (galleryLightbox) {
     });
 }
 
-const scrollTracker = document.querySelector(".scroll-tracker");
 
-if (scrollTracker) {
-    const updateScrollTracker = () => {
-        const scrollTop = window.scrollY;
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 360 : 0;
-
-        scrollTracker.style.setProperty("--scroll-progress", `${progress}deg`);
-        scrollTracker.classList.toggle("is-visible", scrollTop > 120);
-    };
-
-    scrollTracker.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-
-    window.addEventListener("scroll", updateScrollTracker, { passive: true });
-    updateScrollTracker();
-}
-// window.addEventListener('load', function() {
-//     const loader = document.querySelector('.loader-wrapper');
-//     if (loader) {
-//         loader.classList.add('is-hidden');
-//         setTimeout(() => loader.remove(), 1000);
-//     }
-// });

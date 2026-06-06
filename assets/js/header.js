@@ -79,7 +79,7 @@ document
 
 
 
-emailjs.init("3C7gGmuSiDjOz0D0V");
+
 
 const form =
 document.getElementById("quoteForm");
@@ -87,19 +87,20 @@ document.getElementById("quoteForm");
 const btn =
 document.getElementById("submit");
 
-form.addEventListener("submit", function(e){
 
+form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    // 🔵 Button loading start
     btn.innerHTML = "Sending...";
     btn.disabled = true;
 
-    emailjs.sendForm(
-        "service_v5rqyta",
-        "template_wznxlu9",
-        this
-    )
+    const formData = new FormData(this);
+
+    fetch("https://dbifashion.dbidemo.online/backend/dashboard/frontendapi/send_mail.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
     .then(() => {
 Swal.fire({
 
@@ -139,30 +140,99 @@ Swal.fire({
 });
 
         form.reset();
-        // leadBox.classList.remove("active");
         document.getElementById("leadBox").style.display = "none";
-
     })
-    .catch((error) => {
+    .catch(error => {
+        console.log(error);
 
         Swal.fire({
             icon: "error",
             title: "Failed",
             text: "Try again later."
         });
-
-        console.log(error);
-
     })
     .finally(() => {
-
-        // 🔵 Button reset
         btn.innerHTML = "Request Quote";
         btn.disabled = false;
-
     });
-
 });
+
+// form.addEventListener("submit", function(e){
+
+//     e.preventDefault();
+
+//     // 🔵 Button loading start
+//     btn.innerHTML = "Sending...";
+//     btn.disabled = true;
+
+//     emailjs.sendForm(
+//         "service_v5rqyta",
+//         "template_wznxlu9",
+//         this
+//     )
+//     .then(() => {
+// Swal.fire({
+
+//     imageUrl:"https://shyamacompany.vercel.app/assets/img/logo.png",
+
+//     imageWidth:150,
+
+//     title:"Thank You!",
+
+//     html:`
+//         <p style="font-size:16px;color:#666;">
+//             Your quotation request has been submitted.
+//         </p>
+
+//         <div style="
+//             background:#fff7f0;
+//             padding:15px;
+//             border-radius:12px;
+//             margin-top:15px;
+//             color:#0a1128;
+//             font-weight:600;
+//         ">
+//             Our team will contact you within 24 hours.
+//         </div>
+//     `,
+
+//     confirmButtonText:"Great!",
+
+//     confirmButtonColor:"#ff7a1a",
+
+//     background:"#fff",
+
+//     backdrop:`
+//         rgba(10,17,40,0.7)
+//     `
+
+// });
+
+//         form.reset();
+//         // leadBox.classList.remove("active");
+//         document.getElementById("leadBox").style.display = "none";
+
+//     })
+//     .catch((error) => {
+
+//         Swal.fire({
+//             icon: "error",
+//             title: "Failed",
+//             text: "Try again later."
+//         });
+
+//         console.log(error);
+
+//     })
+//     .finally(() => {
+
+//         // 🔵 Button reset
+//         btn.innerHTML = "Request Quote";
+//         btn.disabled = false;
+
+//     });
+
+// });
 window.addEventListener("scroll", function () {
   let navbar = document.getElementById("navbar");
 

@@ -140,7 +140,8 @@ Swal.fire({
 });
 
         form.reset();
-        document.getElementById("leadBox").style.display = "none";
+        document.getElementById("leadBox").classList.remove("active");
+   
     })
     .catch(error => {
         console.log(error);

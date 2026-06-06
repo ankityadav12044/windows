@@ -1669,3 +1669,9 @@ justify-content: center;
 
     pointer-events:none;
 }
+
+.nav-left a.active{
+color: var(--primary-orange);
+text-decoration: underline;
+  
+}

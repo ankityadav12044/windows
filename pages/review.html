@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="reviewForm">
+
+   <input type="text" id="name" placeholder="Your Name">
+
+<select id="rating">
+    <option value="5">★★★★★</option>
+    <option value="4">★★★★☆</option>
+    <option value="3">★★★☆☆</option>
+    <option value="2">★★☆☆☆</option>
+    <option value="1">★☆☆☆☆</option>
+</select>
+
+<textarea id="review"></textarea>
+
+    <button type="submit">
+        Submit Review
+    </button>
+
+</form>
+
+<div id="reviewList"></div>
+
+<script type="module" src="../assets/js/review_fcm.js"></script>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCJQ2ZIRS_zUWCQTxLedaxHnHjtF1OTl8M",
+  authDomain: "shyamacompany-a1bcc.firebaseapp.com",
+  projectId: "shyamacompany-a1bcc",
+  storageBucket: "shyamacompany-a1bcc.firebasestorage.app",
+  messagingSenderId: "757205841705",
+  appId: "1:757205841705:web:3bd40e921f5ef4ee74e938",
+  measurementId: "G-YXLZC1W5DJ"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+</script>
+</body>
+</html>

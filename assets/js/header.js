@@ -98,7 +98,7 @@ form.addEventListener("submit", function(e) {
 
 formData.append("mailid", "ankityadav12044@gmail.com");
 
-fetch("http://shyamaandcompany.infinityfree.me/index.php", {
+fetch("https://shyamaandcompany.infinityfree.me/index.php", {
     method: "POST",
     body: formData
 })

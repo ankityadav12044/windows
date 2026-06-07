@@ -1,0 +1,138 @@
+[33mcommit f42ae80ac6e0758fa93174fe525ed78c35ba40ec[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sat Jun 6 19:16:53 2026 +0530
+
+    add the js for page wise nav link active
+
+[33mcommit 03b34f967e1db8cef13b278662c2e91d513223d7[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sat Jun 6 19:01:56 2026 +0530
+
+    fix the popup problem fix
+
+[33mcommit 137309ceedd302891e3a3021221ca3f25cd735a9[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sat Jun 6 18:54:25 2026 +0530
+
+    change the mail fetaure
+
+[33mcommit 2590fbfeeadfdc58e67304ec0c44ea7c18a6b018[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 16:28:01 2026 +0530
+
+    reupload all code
+
+[33mcommit 51999366655bd3e7bf3d4c21987c8746ff01f809[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 16:13:44 2026 +0530
+
+    refresh git index
+
+[33mcommit 216926b4cd2e0959c067a23599c3e027dc9fd0d0[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 13:13:48 2026 +0530
+
+    add the scroll to y axis to faloting icon animated
+
+[33mcommit c9266b0963d37b6e3f4d3e579337458a1661d817[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 13:02:15 2026 +0530
+
+    add the scrollbar tracking
+
+[33mcommit 7a0444ff76cccdcd445c45870886045173e40475[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 12:05:39 2026 +0530
+
+    add inqire drom in all pages
+
+[33mcommit 5bcc030e543388deea78289f99821c8a85868182[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Jun 1 11:41:44 2026 +0530
+
+    add the lead generation fetaure using inquire form
+
+[33mcommit 08f03f88cc2dd89839c14a99e2526781bba1689d[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sun May 31 18:58:13 2026 +0530
+
+    add the page loader
+
+[33mcommit 0e4f50d283989366f1b44ac3bc30509e64941e88[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Wed May 27 11:28:29 2026 +0530
+
+    add the blog details page
+
+[33mcommit fcf4bdc04868c4017adfd703540fe68bff1ee9a0[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Wed May 27 10:25:56 2026 +0530
+
+    change the home page hero section
+
+[33mcommit 1db1d50dc9aa7e90ea5eb0e1d56f244a68df7c88[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sun May 24 17:04:00 2026 +0530
+
+    add the two more pages like about and service page
+
+[33mcommit a58e481c30e04d74468b9c9fe48c925a8821425a[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Sat May 23 17:33:35 2026 +0530
+
+    add the client marquee
+
+[33mcommit 9bbce1408fe04e13069409daf6a46af724ef9aad[m
+Merge: 9104446 f0c043e
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Wed May 13 10:20:46 2026 +0530
+
+    merge conflict resolved
+
+[33mcommit 9104446f509166620abc266a8faab8b4908ef657[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Wed May 13 10:14:46 2026 +0530
+
+    add the testimonial and blog section
+
+[33mcommit f0c043e86feed2822bb19eb93fa3d002a406ed5f[m
+Author: ANKIT KUMAR <153356039+ankitkumariuj@users.noreply.github.com>
+Date:   Wed Apr 22 11:03:55 2026 +0530
+
+    changing the heading of certification section
+
+[33mcommit 3b13e10706058cbf2b528a257696bd74d9961ed8[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Wed Apr 22 10:59:49 2026 +0530
+
+    add the cerification section
+
+[33mcommit a0d70c83d6cf6f152634649f517881475f230cfb[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Tue Apr 21 16:41:24 2026 +0530
+
+    add the recent project section
+
+[33mcommit d50814f7d7dd8e254947f3b265de64f5f496fe90[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Mon Apr 20 00:19:39 2026 +0530
+
+    add the about section media query
+
+[33mcommit b18ebcddadc55f63adb6901827f2bb75a0ee39e0[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Fri Apr 17 12:37:00 2026 +0530
+
+    header section ul under misking / of the close tag of li
+
+[33mcommit 1decd3bb287cf5fe38d017a3a186bef66cbdd056[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Fri Apr 17 12:27:50 2026 +0530
+
+    add the about us in second time
+
+[33mcommit df63a4f0172d6bf59a0e2c1a816d46e7f51a0e03[m
+Author: ANKIT KUMAR <ankityadav12044@gmail.com>
+Date:   Fri Apr 17 12:17:06 2026 +0530
+
+    add the home page about section

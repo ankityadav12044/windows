@@ -94,12 +94,14 @@ form.addEventListener("submit", function(e) {
     btn.innerHTML = "Sending...";
     btn.disabled = true;
 
-    const formData = new FormData(this);
+   const formData = new FormData(this);
 
-    fetch("https://dbifashion.dbidemo.online/backend/dashboard/frontendapi/send_mail.php", {
-        method: "POST",
-        body: formData
-    })
+formData.append("mailid", "ankityadav12044@gmail.com");
+
+fetch("https://dbifashion.dbidemo.online/backend/dashboard/frontendapi/send_mail.php", {
+    method: "POST",
+    body: formData
+})
     .then(response => response.text())
     .then(() => {
 Swal.fire({

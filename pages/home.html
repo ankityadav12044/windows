@@ -902,7 +902,7 @@
 
         <!-- Swiper Slider Main Container -->
         <div class="swiper testimonial">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" id="reviewSlider">
                 
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
@@ -1353,9 +1353,22 @@
     <!-- ✅ Tumhara JS (ALWAYS last) -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/testimonial.js"></script>
+    <script  type="module" src="../assets/js/testimonial.js"></script>
     <script src="../assets/js/showroom.js"></script> 
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
+fbq('init', '836947705463288');
+fbq('track', 'PageView');
+</script>
 </body>
 
 </html>

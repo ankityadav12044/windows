@@ -1,3 +1,5 @@
+
+
 document.querySelectorAll('.loader-wrapper').forEach(loader => {
     setTimeout(() => {
         loader.style.display = 'none';
@@ -90,7 +92,11 @@ document.getElementById("submit");
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
-
+    console.log("Lead Event Sent");
+    
+ fbq('track', 'Lead', {
+        content_name: 'Quote Form'
+    });
     btn.innerHTML = "Sending...";
     btn.disabled = true;
 
@@ -305,3 +311,7 @@ document.querySelectorAll(".nav-left a").forEach(link => {
         link.classList.add("active");
     }
 });
+
+
+
+

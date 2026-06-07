@@ -29,9 +29,16 @@
 <div id="reviewList"></div>
 
 <script type="module" src="../assets/js/review_fcm.js"></script>
-    <script type="module">
+<script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+import {
+    getDatabase,
+    ref,
+    push,
+    onValue
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJQ2ZIRS_zUWCQTxLedaxHnHjtF1OTl8M",
@@ -45,6 +52,73 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+
+// ADD REVIEW
+
+document.getElementById("reviewForm")
+.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const rating =
+    document.getElementById("rating").value;
+
+    const review =
+    document.getElementById("review").value;
+
+    await push(ref(db, "reviews"), {
+
+        name,
+        rating: Number(rating),
+        review,
+        createdAt: Date.now()
+
+    });
+
+    alert("Review Added");
+
+    e.target.reset();
+
+});
+
+
+// FETCH REVIEWS
+
+const reviewList =
+document.getElementById("reviewList");
+
+onValue(ref(db, "reviews"), (snapshot) => {
+
+    reviewList.innerHTML = "";
+
+    const data = snapshot.val();
+
+    if (!data) return;
+
+    Object.values(data)
+    .reverse()
+    .forEach(item => {
+
+        const stars =
+            "★".repeat(item.rating) +
+            "☆".repeat(5 - item.rating);
+
+        reviewList.innerHTML += `
+            <div class="review-card">
+                <h3>${item.name}</h3>
+                <div>${stars}</div>
+                <p>${item.review}</p>
+            </div>
+        `;
+
+    });
+
+});
+
 </script>
 </body>
 </html>

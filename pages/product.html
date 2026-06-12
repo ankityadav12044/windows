@@ -644,7 +644,24 @@ const PRODUCTS_DATA = {
       { label: "3 Track", sub: "With Mesh / Grill" },
       { label: "3 Track", sub: "Without Mesh / Grill" },
     ],
-    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+   customise: [
+  {
+    title: "Color / Lamination",
+    image: "../assets/img/color_lamination.jpg"
+  },
+  {
+    title: "Glass",
+    image: "../assets/img/glass.jpg"
+  },
+  {
+    title: "Hardware",
+    image: "../assets/img/hardware.jpg"
+  },
+  {
+    title: "Mesh / Grill",
+    image: "../assets/img/mesh_grill.jpg"
+  }
+],
     keyFeatures: [
       { icon: "fas fa-cog", title: "Advanced German Technology", text: "" },
       { icon: "fas fa-check-circle", title: "Premium Quality uPVC Profiles", text: "" },
@@ -679,7 +696,24 @@ const PRODUCTS_DATA = {
       { label: "With Mesh", sub: "Single Sash" },
       { label: "Bay Style", sub: "Three Sash" },
     ],
-    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+customise: [
+  {
+    title: "Color / Lamination",
+    image: "../assets/img/color_lamination.jpg"
+  },
+  {
+    title: "Glass",
+    image: "../assets/img/glass.jpg"
+  },
+  {
+    title: "Hardware",
+    image: "../assets/img/hardware.jpg"
+  },
+  {
+    title: "Mesh / Grill",
+    image: "../assets/img/mesh_grill.jpg"
+  }
+],
     keyFeatures: [
       { icon: "fas fa-wind", title: "Maximum Ventilation", text: "" },
       { icon: "fas fa-lock", title: "Multi-Point Locking", text: "" },
@@ -714,7 +748,24 @@ const PRODUCTS_DATA = {
       { label: "Gothic Arch", sub: "Fixed" },
       { label: "Arch + Sliding", sub: "Combination" },
     ],
-    customise: ["Color / Lamination", "Glass", "Hardware", "Decorative Grills"],
+   customise: [
+  {
+    title: "Color / Lamination",
+    image: "../assets/img/color_lamination.jpg"
+  },
+  {
+    title: "Glass",
+    image: "../assets/img/glass.jpg"
+  },
+  {
+    title: "Hardware",
+    image: "../assets/img/hardware.jpg"
+  },
+  {
+    title: "Mesh / Grill",
+    image: "../assets/img/mesh_grill.jpg"
+  }
+],
     keyFeatures: [
       { icon: "fas fa-archway", title: "Custom Arch Profiles", text: "" },
       { icon: "fas fa-sun", title: "UV & Weather Resistant", text: "" },
@@ -749,7 +800,24 @@ const PRODUCTS_DATA = {
       { label: "Bay + Fixed", sub: "Combination" },
       { label: "Full-Width", sub: "Fixed + Ventilator" },
     ],
-    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    customise: [
+  {
+    title: "Color / Lamination",
+    image: "../assets/img/color_lamination.jpg"
+  },
+  {
+    title: "Glass",
+    image: "../assets/img/glass.jpg"
+  },
+  {
+    title: "Hardware",
+    image: "../assets/img/hardware.jpg"
+  },
+  {
+    title: "Mesh / Grill",
+    image: "../assets/img/mesh_grill.jpg"
+  }
+],
     keyFeatures: [
       { icon: "fas fa-th-large", title: "Modular Design System", text: "" },
       { icon: "fas fa-expand-arrows-alt", title: "Panoramic Views", text: "" },
@@ -784,7 +852,24 @@ const PRODUCTS_DATA = {
       { label: "Tilt & Turn", sub: "Premium" },
       { label: "Fixed Picture", sub: "Panoramic" },
     ],
-    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+customise: [
+  {
+    title: "Color / Lamination",
+    image: "../assets/img/color_lamination.jpg"
+  },
+  {
+    title: "Glass",
+    image: "../assets/img/glass.jpg"
+  },
+  {
+    title: "Hardware",
+    image: "../assets/img/hardware.jpg"
+  },
+  {
+    title: "Mesh / Grill",
+    image: "../assets/img/mesh_grill.jpg"
+  }
+],
     keyFeatures: [
       { icon: "fas fa-gem", title: "Luxury Premium Profiles", text: "" },
       { icon: "fas fa-ruler-combined", title: "Large Format Available", text: "" },
@@ -894,12 +979,14 @@ function renderPage(product) {
     </div>
   `).join('');
 
-  const customiseHTML = product.customise.map(label => `
-    <div class="customise-card">
-      <div class="customise-card-img"><i class="fas fa-layer-group" style="font-size:44px;color:#ccc;"></i></div>
-      <h4>${label}</h4>
+  const customiseHTML = product.customise.map(item => `
+  <div class="customise-card">
+    <div class="customise-card-img">
+      <img src="${item.image}" alt="${item.title}">
     </div>
-  `).join('');
+    <h4>${item.title}</h4>
+  </div>
+`).join('');
 
   const keyFeaturesHTML = product.keyFeatures.map(kf => `
     <div class="keyfeature-item">

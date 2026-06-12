@@ -1,187 +1,97 @@
-// Product Gallery
-
-const params = new URLSearchParams(window.location.search);
-const slug = params.get("product");
-
-const product = products.find(
-  item => item.slug === slug
-);
-
-const thumbs = document.querySelectorAll(".thumbs img");
-const mainImage = document.querySelector(".main-image img");
-
-thumbs.forEach((thumb) => {
-
-    thumb.addEventListener("click", () => {
-
-        thumbs.forEach(item =>
-            item.classList.remove("active")
-        );
-
-        thumb.classList.add("active");
-
-        mainImage.src = thumb.src;
-    });
-
-});
+import { db } from "../js/firebase_config.js";
+import {
+    ref,
+    push,
+    onValue
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 
-// FAQ Accordion
+function openReviewPopup(){
+    document.getElementById("reviewPopup").style.display="flex";
+}
 
-const faqItems = document.querySelectorAll(".faq-item");
+function closeReviewPopup(){
+    document.getElementById("reviewPopup").style.display="none";
+}
 
-faqItems.forEach((item) => {
+document
+.getElementById("reviewForm")
+.addEventListener("submit", async (e) => {
 
-    const button = item.querySelector("button");
+    e.preventDefault();
 
-    button.addEventListener("click", () => {
+    const name =
+    document.getElementById("name").value;
 
-        item.classList.toggle("active");
+    const review =
+    document.getElementById("review").value;
 
-    });
+    const rating =
+    document.querySelector(
+        'input[name="rating"]:checked'
+    )?.value;
 
-});
+    if (!rating) {
 
-new Swiper(".optionsSwiper", {
-    slidesPerView: 4,
-    spaceBetween: 25,
-    loop: true,
+        Swal.fire({
+            icon: "warning",
+            title: "Rating Required",
+            text: "Please select a rating first.",
+            confirmButtonColor: "#ff7a1a"
+        });
 
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-        },
-        576: {
-            slidesPerView: 2,
-        },
-        768: {
-            slidesPerView: 3,
-        },
-        1200: {
-            slidesPerView: 4,
-        }
+        return;
     }
+
+    await push(ref(db, "reviews"), {
+
+        name,
+        review,
+        rating: Number(rating),
+        createdAt: new Date().toISOString()
+
+    });
+
+    Swal.fire({
+
+        imageUrl: "https://shyamacompany.vercel.app/assets/img/logo.png",
+
+        imageWidth: 150,
+
+        title: "Thank You!",
+
+        html: `
+            <p style="font-size:16px;color:#666;">
+                Your review has been submitted successfully.
+            </p>
+
+            <div style="
+                background:#fff7f0;
+                padding:15px;
+                border-radius:12px;
+                margin-top:75px;
+                color:#0a1128;
+                font-weight:600;
+            ">
+                ⭐ ${rating}/5 Rating Received <br>
+                We appreciate your valuable feedback.
+            </div>
+        `,
+
+        confirmButtonText: "Awesome!",
+
+        confirmButtonColor: "#ff7a1a",
+
+        background: "#fff",
+
+        backdrop: `
+            rgba(10,17,40,0.7)
+        `
+
+    });
+
+    e.target.reset();
+
+    closeReviewPopup();
+
 });
-
-
-const products = [
-  {
-    slug: "sliding-window",
-    title: "Sliding Windows",
-    description: "Smooth sliding operation with modern design and space-saving functionality.",
-    image: "images/sliding/main.webp",
-    features: [
-      "Smooth & Effortless Sliding",
-      "Space Saving Design",
-      "Weather Resistant",
-      "Low Maintenance",
-      "Energy Efficient"
-    ]
-  },
-
-  {
-    slug: "casement-window",
-    title: "Casement Windows",
-    description: "Side opening windows offering maximum ventilation and security.",
-    image: "images/casement/main.webp",
-    features: [
-      "Wide Opening",
-      "Excellent Ventilation",
-      "High Security",
-      "Weather Resistant",
-      "Energy Efficient"
-    ]
-  },
-
-  {
-    slug: "tilt-turn-window",
-    title: "Tilt & Turn Windows",
-    description: "Modern European style windows with dual opening functionality.",
-    image: "images/tilt-turn/main.webp",
-    features: [
-      "Dual Opening",
-      "Easy Cleaning",
-      "Sound Insulation",
-      "Premium Look",
-      "High Security"
-    ]
-  },
-
-  {
-    slug: "villa-window",
-    title: "Villa Windows",
-    description: "Luxury windows specially designed for villas and premium homes.",
-    image: "images/villa/main.webp",
-    features: [
-      "Premium Design",
-      "Elegant Appearance",
-      "Strong Frame",
-      "Weather Resistant",
-      "Energy Efficient"
-    ]
-  },
-
-  {
-    slug: "combination-window",
-    title: "Combination Windows",
-    description: "Combination of different window styles for unique requirements.",
-    image: "images/combination/main.webp",
-    features: [
-      "Custom Design",
-      "Multiple Styles",
-      "Large Openings",
-      "Enhanced Aesthetics",
-      "Flexible Configuration"
-    ]
-  },
-
-  {
-    slug: "arch-window",
-    title: "Arch Windows",
-    description: "Beautiful curved windows adding elegance and architectural appeal.",
-    image: "images/arch/main.webp",
-    features: [
-      "Elegant Design",
-      "Unique Shape",
-      "Natural Light",
-      "Premium Appearance",
-      "Custom Sizes"
-    ]
-  }
-];
-
-const product = products.find(item => item.id == 1);
-
-document.getElementById("productDetails").innerHTML = `
-<div class="product-page">
-    <div class="product-image">
-        <img src="${product.image}" alt="">
-    </div>
-
-    <div class="product-content">
-        <h1>${product.name}</h1>
-        <p>${product.description}</p>
-
-        <ul>
-            ${product.features
-              .map(feature => `<li>${feature}</li>`)
-              .join("")}
-        </ul>
-    </div>
-</div>
-`;

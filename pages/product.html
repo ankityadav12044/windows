@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <link rel="stylesheet" href="../assets/css/header.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shyama & Company - Product Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
      <link rel="stylesheet" href="../assets/css/footer.css">
      <link rel="stylesheet" href="../assets/css/product.css">
@@ -19,8 +21,198 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/loader.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #F47920;
+    --orange-dark: #d96a10;
+    --navy: #1a2340;
+    --navy-light: #243050;
+    --gray-bg: #f8f9fa;
+    --gray-border: #e0e0e0;
+    --text-dark: #1a1a1a;
+    --text-mid: #555;
+    --text-light: #888;
+    --white: #ffffff;
+    --green: #28a745;
+    --radius: 8px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  .combo_nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--navy) !important;
+    z-index: 9999;
+    margin-bottom: 40px;
+}
+
+
+
+  /* ── breadcrumbs ── */
+  .breadcrumbs { max-width: 1200px; margin-top: 175px !important; margin: 0 auto; padding: 12px 20px; font-size: 13px; color: var(--text-light); display: flex; align-items: center; gap: 6px; }
+  .breadcrumbs a { color: var(--text-mid); }
+  .breadcrumbs a:hover { color: var(--orange); }
+  .breadcrumbs i { font-size: 10px; }
+  .breadcrumbs span{
+    color: var(--orange);
+  }
+
+  /* ── PRODUCT HERO ── */
+  .product-hero { max-width: 1200px; margin: 0 auto; padding: 20px 20px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .gallery-wrap { display: flex; gap: 14px; }
+  .thumbs { display: flex; flex-direction: column; gap: 10px; }
+  .thumb { width: 72px; height: 72px; border: 2px solid var(--gray-border); border-radius: var(--radius); overflow: hidden; cursor: pointer; display: flex; align-items: center; justify-content: center; background: #f4f4f4; transition: border-color .2s; position: relative; }
+  .thumb.active, .thumb:hover { border-color: var(--orange); }
+  .thumb img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+  .thumb-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #e8e8e8, #f5f5f5); display: flex; align-items: center; justify-content: center; color: #ccc; font-size: 22px; }
+  .main-img-wrap { flex: 1; border: 1px solid var(--gray-border); border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 340px; background: #f9f9f9; position: relative; }
+  .main-img-wrap img { width: 100%; height: 340px; object-fit: contain; padding: 20px; }
+  .main-img-placeholder { width: 100%; height: 340px; display: flex; align-items: center; justify-content: center; font-size: 80px; color: #ccc; }
+
+  .product-info h1 { font-size: 32px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .product-info .desc { color: var(--text-mid); font-size: 14px; margin-bottom: 20px; line-height: 1.7; }
+  .features-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .features-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--text-dark); }
+  .features-list li i { color: var(--orange); font-size: 16px; }
+  .product-btns { display: flex; flex-direction: column; gap: 12px; }
+  .btn-primary { background: var(--orange); color: #fff; border: none; padding: 14px 28px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; width: fit-content; transition: background .2s; }
+  .btn-primary:hover { background: var(--orange-dark); }
+  .btn-secondary { background: #fff; color: var(--text-dark); border: 2px solid var(--gray-border); padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; width: fit-content; transition: border-color .2s, color .2s; }
+  .btn-secondary:hover { border-color: var(--orange); color: var(--orange); }
+
+  /* ── STATS ── */
+  .stats-bar { background: var(--gray-bg); border-top: 1px solid var(--gray-border); border-bottom: 1px solid var(--gray-border); }
+  .stats-inner { max-width: 1200px; margin: 0 auto; padding: 30px 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .stat-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .stat-icon { width: 52px; height: 52px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 4px; box-shadow: var(--shadow); }
+  .stat-icon i { color: var(--orange); font-size: 22px; }
+  .stat-value { font-size: 26px; font-weight: 800; color: var(--navy); }
+  .stat-label { font-size: 13px; color: var(--text-mid); font-weight: 500; }
+
+  /* ── SECTION COMMON ── */
+  .section { padding: 50px 0; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .section-title { text-align: center; font-size: 18px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; }
+
+  /* ── OPTIONS CAROUSEL ── */
+  .options-section { background: #fff; }
+  .options-carousel-wrap { position: relative; display: flex; align-items: center; gap: 10px; }
+  .options-carousel { display: flex; gap: 14px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; flex: 1; }
+  .options-carousel::-webkit-scrollbar { display: none; }
+  .option-card { min-width: 160px; border: 2px solid var(--gray-border); border-radius: var(--radius); padding: 14px; text-align: center; cursor: pointer; transition: border-color .2s, box-shadow .2s; background: #fff; flex-shrink: 0; }
+  .option-card:first-child, .option-card.selected { border-color: var(--orange); box-shadow: 0 0 0 2px rgba(244,121,32,0.15); }
+  .option-card-img { width: 100%; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 38px; color: #bbb; margin-bottom: 8px; }
+  .option-card-img svg { width: 70px; height: 70px; }
+  .option-card h4 { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+  .option-card p { font-size: 11px; color: var(--text-light); }
+  .carousel-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--orange); background: #fff; color: var(--orange); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s, color .2s; }
+  .carousel-btn:hover { background: var(--orange); color: #fff; }
+
+  /* ── CUSTOMISE ── */
+  .customise-section { background: var(--gray-bg); }
+  .customise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .customise-card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .2s, box-shadow .2s; }
+  .customise-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .customise-card-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 50px; background: linear-gradient(135deg, #f0f0f0, #e0e0e0); overflow: hidden; }
+  .customise-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .customise-card h4 { font-size: 14px; font-weight: 600; text-align: center; padding: 12px; color: var(--navy); }
+
+  /* ── KEY FEATURES ── */
+  .keyfeatures-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .keyfeature-item { display: flex; align-items: center; gap: 14px; padding: 18px; background: var(--gray-bg); border-radius: var(--radius); }
+  .keyfeature-icon { width: 52px; height: 52px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 22px; flex-shrink: 0; }
+  .keyfeature-text h4 { font-size: 14px; font-weight: 700; color: var(--navy); }
+  .keyfeature-text p { font-size: 12px; color: var(--text-mid); }
+
+  /* ── FAQ ── */
+  .faq-section { background: #fff; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .faq-item { border: 1px solid var(--gray-border); border-radius: var(--radius); overflow: hidden; }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; cursor: pointer; font-size: 14px; font-weight: 600; color: var(--navy); background: #fff; user-select: none; gap: 10px; }
+  .faq-q i { color: var(--orange); font-size: 16px; flex-shrink: 0; }
+  .faq-a { padding: 0 18px; font-size: 13px; color: var(--text-mid); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .3s, padding .3s; }
+  .faq-a.open { max-height: 300px; padding: 0 18px 14px; }
+
+  /* ── RELATED ── */
+  .related-section { background: var(--gray-bg); }
+  .related-carousel-wrap { position: relative; display: flex; align-items: center; gap: 10px; }
+  .related-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; flex: 1; }
+  .related-carousel::-webkit-scrollbar { display: none; }
+  .related-card { min-width: 200px; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); cursor: pointer; transition: transform .2s, box-shadow .2s; flex-shrink: 0; text-align: center; border: 2px solid transparent; }
+  .related-card:hover {  box-shadow: var(--shadow-lg); border-color: var(--orange); }
+  .related-card-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 50px; background: #f4f4f4; color: #ccc; overflow: hidden; }
+  .related-card-img img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+  .related-card h4 { font-size: 14px; font-weight: 600; padding: 12px; color: var(--navy); }
+
+  
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .product-hero { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .customise-grid, .keyfeatures-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .nav-links, .nav-search { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .customise-grid { grid-template-columns: repeat(2, 1fr); }
+    .keyfeatures-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .cta-inner { flex-direction: column; align-items: flex-start; }
+    .product-hero { gap: 28px; }
+    .product-info h1 { font-size: 24px; }
+    .keyfeature-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+    background: var(--gray-bg);
+    border-radius: var(--radius);
+}
+
+.thumbs {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.gallery-wrap{
+  flex-direction: column-reverse;
+}
+
+.breadcrumbs {
+  margin-top: 10px !important;
+}
+
+.btn-secondary {
+  font-size: 10px;
+}
+.btn-primary  {
+  font-size: 10px;
+}
+
+.review-btn {
+  font-size: 10px;
+}
+
+
+
+
+  }
+
+
+</style>
 </head>
 <body>
+
 
      <div class="combo_nav">
         <!-- 🔹 Top Bar -->
@@ -159,227 +351,9 @@
 
 
     <!-- main product section -->
-<main class="product-page">
-
-    <!-- Product Hero -->
-    <section class="product-details">
-        <div class="product-gallery">
-            <div class="thumbs">
-                <img src="../assets/product/sliding-windows-01 (1).webp">
-                <img src="../assets/product/sliding-windows-02.webp">
-                <img src="../assets/product/sliding-windows-03.webp">
-                <!-- <img src="../assets/product/sliding-windows-04 (1).webp"> -->
-            </div>
-
-            <div class="main-image">
-                <img src="../assets/product/sliding-windows-01 (1).webp">
-            </div>
-        </div>
-
-        <div class="product-content">
-            <h1>Sliding Windows</h1>
-
-            <p>
-                Smooth sliding operation with modern design and
-                space-saving functionality for better ventilation.
-            </p>
-
-            <ul>
-                <li>Smooth & Effortless Sliding</li>
-                <li>Space Saving Design</li>
-                <li>Weather Resistant</li>
-                <li>Low Maintenance</li>
-                <li>Energy Efficient</li>
-            </ul>
-
-            <div class="btn-group">
-                <a href="#" class="btn-primary">Get A Quote</a>
-                <a href="#" class="btn-outline">Download Brochure</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats-section">
-        <div class="stat-box">
-            <h3>8+</h3>
-            <p>Years of Excellence</p>
-        </div>
-
-        <div class="stat-box">
-            <h3>5000+</h3>
-            <p>Happy Customers</p>
-        </div>
-
-        <div class="stat-box">
-            <h3>100%</h3>
-            <p>Quality Products</p>
-        </div>
-
-        <div class="stat-box">
-            <h3>24/7</h3>
-            <p>Customer Support</p>
-        </div>
-    </section>
-
-   <section class="window-options">
-    <h2>uPVC Sliding Window Options</h2>
-
-    <div class="swiper optionsSwiper">
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="option-card">
-                    <img src="option1.png" alt="">
-                    <h4>2.5 Track</h4>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="option-card">
-                    <img src="option2.png" alt="">
-                    <h4>2 Track</h4>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="option-card">
-                    <img src="option3.png" alt="">
-                    <h4>2 Track Fixed Top</h4>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="option-card">
-                    <img src="option4.png" alt="">
-                    <h4>3 Track</h4>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="option-card">
-                    <img src="option5.png" alt="">
-                    <h4>3 Track Without Mesh</h4>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-
-        <div class="swiper-pagination"></div>
-    </div>
-</section>
-
-    <!-- Customize -->
-    <section class="customize-section">
-        <h2>Customize Your uPVC Sliding Windows</h2>
-
-        <div class="custom-grid">
-            <div class="custom-card">
-                <img src="lamination.jpg">
-                <h4>Color / Lamination</h4>
-            </div>
-
-            <div class="custom-card">
-                <img src="glass.jpg">
-                <h4>Glass</h4>
-            </div>
-
-            <div class="custom-card">
-                <img src="hardware.jpg">
-                <h4>Hardware</h4>
-            </div>
-
-            <div class="custom-card">
-                <img src="mesh.jpg">
-                <h4>Mesh / Grill</h4>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features-section">
-        <h2>Key Features</h2>
-
-        <div class="feature-grid">
-            <div class="feature-box">
-                Advanced German Technology
-            </div>
-
-            <div class="feature-box">
-                Premium Quality uPVC Profiles
-            </div>
-
-            <div class="feature-box">
-                Energy Efficient & Noise Reduction
-            </div>
-
-            <div class="feature-box">
-                Customized Solutions For Every Need
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <button>What is uPVC sliding window?</button>
-            <div class="faq-content">
-                uPVC sliding windows are easy to operate...
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button>Why do we use uPVC sliding windows?</button>
-        </div>
-
-        <div class="faq-item">
-            <button>Are uPVC windows energy efficient?</button>
-        </div>
-    </section>
-
-    <!-- Related Products -->
-    <section class="related-products">
-        <h2>Related Products</h2>
-
-        <div class="related-grid">
-            <div class="product-card">
-                <img src="casement.png">
-                <h4>Casement Windows</h4>
-            </div>
-
-            <div class="product-card">
-                <img src="tilt-turn.png">
-                <h4>Tilt & Turn Windows</h4>
-            </div>
-
-            <div class="product-card">
-                <img src="villa.png">
-                <h4>Villa Windows</h4>
-            </div>
-        </div>
-    </section>
-
-
-    <div id="productDetails"></div>
-
-    <!-- CTA -->
-    <section class="cta-banner">
-        <div>
-            <h2>Need Premium uPVC Windows For Your Home Or Project?</h2>
-        </div>
-
-        <div class="cta-buttons">
-            <a href="#" class="btn-primary">Get A Free Quote</a>
-            <a href="#" class="btn-outline">Contact Us</a>
-        </div>
-    </section>
-
-</main>
+<div id="page-content">
+  <div class="loader"><div class="spinner"></div><p>Loading product...</p></div>
+</div>
 
 
     <!-- footer section -->
@@ -592,13 +566,561 @@
         </div>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+
+<!-- Review Popup -->
+<div class="review-overlay" id="reviewPopup">
+    <div class="review-modal">
+
+        <span class="close-btn" onclick="closeReviewPopup()">&times;</span>
+
+        <div class="review-header">
+            <h2>Share Your Experience</h2>
+            <p>Your feedback helps us improve.</p>
+        </div>
+
+        <form id="reviewForm">
+
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Your Name" required>
+            </div>
+
+            <div class="rating-box">
+
+                <input type="radio" name="rating" value="5" id="star5">
+                <label for="star5">★</label>
+
+                <input type="radio" name="rating" value="4" id="star4">
+                <label for="star4">★</label>
+
+                <input type="radio" name="rating" value="3" id="star3">
+                <label for="star3">★</label>
+
+                <input type="radio" name="rating" value="2" id="star2">
+                <label for="star2">★</label>
+
+                <input type="radio" name="rating" value="1" id="star1">
+                <label for="star1">★</label>
+
+            </div>
+
+            <div class="input-group">
+                <textarea
+                    id="review"
+                    rows="4"
+                    placeholder="Write your review..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="submit-review">
+                Submit Review
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+/* =====================================================
+   PRODUCT DATA — In production, replace this with:
+   fetch(`/api/products/${id}`)  OR  fetch(`products.json`)
+   ===================================================== */
+const PRODUCTS_DATA = {
+  1: {
+    id: 1,
+    name: "Sliding Windows",
+    category: "UPVC Windows",
+    description: "Smooth sliding operation with modern design and space-saving functionality for better ventilation and natural light.",
+    features: ["Smooth & Effortless Sliding", "Space Saving Design", "Weather Resistant", "Low Maintenance", "Energy Efficient"],
+    image: "../assets/product/sliding-windows-01.webp",
+    thumbImages: ["../assets/product/sliding-windows-01.webp", "../assets/product/sliding-windows-02.webp", "../assets/product/sliding-windows-03.webp"],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "2.5 Track", sub: "With Mesh / Grill" },
+      { label: "2 Track", sub: "Without Mesh / Grill" },
+      { label: "2 Track", sub: "With Fixed Top" },
+      { label: "3 Track", sub: "With Mesh / Grill" },
+      { label: "3 Track", sub: "Without Mesh / Grill" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    keyFeatures: [
+      { icon: "fas fa-cog", title: "Advanced German Technology", text: "" },
+      { icon: "fas fa-check-circle", title: "Premium Quality uPVC Profiles", text: "" },
+      { icon: "fas fa-leaf", title: "Energy Efficient & Noise Reduction", text: "" },
+      { icon: "fas fa-wrench", title: "Customized Solutions For Every Need", text: "" }
+    ],
+    faqs: [
+      { q: "What is uPVC sliding window?", a: "uPVC sliding windows are the easiest to operate. They comprise of 2 or more sashes with nylon rollers fitted at the base for swift movement of the sashes horizontally." },
+      { q: "What is the lifespan of a uPVC sliding window?", a: "A high-quality uPVC sliding window can last 25-35 years with minimal maintenance, making it a cost-effective long-term investment for your home or office." },
+      { q: "Why do we use uPVC sliding windows?", a: "uPVC sliding windows offer excellent thermal insulation, noise reduction, and are virtually maintenance-free compared to traditional wooden or aluminium frames." },
+      { q: "Are uPVC sliding windows easy to maintain?", a: "Yes, uPVC windows require very little maintenance. Simply wipe with a damp cloth and mild detergent periodically to keep them looking new for decades." },
+      { q: "Which are the best quality uPVC windows to install?", a: "Windows made with German-technology uPVC profiles with multi-chambered design offer the best performance in terms of insulation, strength, and durability." },
+      { q: "What are 2/3/4 track uPVC sliding windows?", a: "Track count refers to the number of channels the window sashes slide in. 2-track has two sashes, 3-track accommodates three sashes for wider openings." },
+      { q: "How much does it cost for uPVC sliding windows?", a: "Pricing varies based on size, glass type, hardware, and customisation options. Contact us for a free quote tailored to your specific requirements." },
+      { q: "Are uPVC sliding windows energy efficient?", a: "Yes! uPVC frames combined with double or triple glazed glass significantly reduce heat transfer, helping maintain indoor temperature and lower energy bills." }
+    ],
+    related: [2, 6, 5]
+  },
+  2: {
+    id: 2,
+    name: "Casement Windows",
+    category: "UPVC Windows",
+    description: "Hinged on one side and opening outward or inward, casement windows provide maximum ventilation and an unobstructed view with tight sealing.",
+    features: ["Maximum Ventilation", "Excellent Sealing", "360° Hardware", "Durable uPVC Frame", "Easy Operation"],
+    image: "../assets/product/casement-window-1.webp",
+    thumbImages: ["../assets/product/casement-window-1.webp", "../assets/product/casement-windows-02.webp", "../assets/product/casement-windows-03.webp", "../assets/product/casement-windows-04.webp"],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "Single Sash", sub: "Outward Opening" },
+      { label: "Double Sash", sub: "Outward Opening" },
+      { label: "Single Sash", sub: "Inward Opening" },
+      { label: "With Mesh", sub: "Single Sash" },
+      { label: "Bay Style", sub: "Three Sash" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    keyFeatures: [
+      { icon: "fas fa-wind", title: "Maximum Ventilation", text: "" },
+      { icon: "fas fa-lock", title: "Multi-Point Locking", text: "" },
+      { icon: "fas fa-thermometer-half", title: "Superior Thermal Insulation", text: "" },
+      { icon: "fas fa-palette", title: "Custom Color Options", text: "" }
+    ],
+    faqs: [
+      { q: "What is a uPVC casement window?", a: "A casement window is hinged at the side and opens outward or inward like a door, providing excellent ventilation and a weather-tight seal when closed." },
+      { q: "How do casement windows open?", a: "Casement windows use a crank handle or lever mechanism to swing the sash open, allowing full opening for maximum airflow." },
+      { q: "Are casement windows more secure?", a: "Yes, casement windows feature multi-point locking systems along the full frame perimeter, making them one of the most secure window types available." },
+      { q: "What glass options are available?", a: "We offer single, double, and triple glazed options, as well as tinted, frosted, laminated, and tempered glass to suit your needs." },
+      { q: "Can casement windows be customised?", a: "Absolutely. You can choose from a wide range of frame colors, glass types, hardware finishes, and mesh options to match your interiors." },
+      { q: "Are they suitable for all climates?", a: "Yes, uPVC casement windows perform excellently in all weather conditions — from tropical heat to cold winters — with minimal warping or degradation." },
+      { q: "How do I maintain casement windows?", a: "Periodically clean the frame and glass, lubricate the hinges and hardware annually, and check seals for any gaps to ensure long-lasting performance." },
+      { q: "What is the installation time?", a: "Professional installation of a standard casement window typically takes 2-4 hours per unit, depending on the opening size and wall type." }
+    ],
+    related: [1, 3, 5]
+  },
+  3: {
+    id: 3,
+    name: "Arch Windows",
+    category: "UPVC Windows",
+    description: "Elegant arched top windows that combine classic architectural beauty with modern uPVC performance, perfect for adding a unique design element.",
+    features: ["Architectural Elegance", "Custom Arch Profiles", "UV Resistant", "Sound Insulation", "Long-Lasting Beauty"],
+    image: "../assets/product/arch-windows-01.webp",
+    thumbImages: ["../assets/product/arch-windows-01.webp", "../assets/product/arch-windows-02.webp", "../assets/product/arch-windows-03.webp"],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "Semi-Circle", sub: "Fixed Arch" },
+      { label: "Elliptical", sub: "Fixed Arch" },
+      { label: "Arch + Casement", sub: "Combination" },
+      { label: "Gothic Arch", sub: "Fixed" },
+      { label: "Arch + Sliding", sub: "Combination" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Decorative Grills"],
+    keyFeatures: [
+      { icon: "fas fa-archway", title: "Custom Arch Profiles", text: "" },
+      { icon: "fas fa-sun", title: "UV & Weather Resistant", text: "" },
+      { icon: "fas fa-volume-mute", title: "Superior Sound Insulation", text: "" },
+      { icon: "fas fa-pencil-ruler", title: "Bespoke Designs", text: "" }
+    ],
+    faqs: [
+      { q: "What is a uPVC arch window?", a: "Arch windows feature a curved or arched top combined with a straight bottom section, adding architectural elegance to any building facade." },
+      { q: "Can arch windows be made to custom sizes?", a: "Yes, all our arch windows are custom-manufactured to precise dimensions, ensuring a perfect fit for any opening shape or size." },
+      { q: "Are arch windows energy efficient?", a: "Absolutely. Our uPVC arch windows use multi-chambered profiles and high-performance glazing for excellent thermal and acoustic performance." },
+      { q: "What arch styles are available?", a: "We offer semi-circular, elliptical, gothic, and irregular arches, as well as combination units pairing the arch with sliding or casement sections." },
+      { q: "Do arch windows require special installation?", a: "Arch windows need skilled installation to ensure the curved profile fits perfectly. Our certified teams handle all types of arch installations." },
+      { q: "Can I add decorative grills to arch windows?", a: "Yes, a variety of decorative grill patterns — colonial, diamond, square — are available to enhance the architectural appeal of arch windows." },
+      { q: "Are they suitable for commercial buildings?", a: "Arch windows are popular in both residential and commercial buildings, particularly for lobbies, churches, heritage buildings, and premium residences." },
+      { q: "What maintenance do arch windows require?", a: "Minimal. Clean the frame with a damp cloth, check rubber seals annually, and ensure the drainage slots are free of debris for optimal performance." }
+    ],
+    related: [2, 4, 1]
+  },
+  4: {
+    id: 4,
+    name: "Combination Windows",
+    category: "UPVC Windows",
+    description: "Versatile combination window systems that merge fixed, sliding, and casement elements into one seamless unit for maximum design flexibility.",
+    features: ["Design Flexibility", "Modular System", "Enhanced Ventilation", "Panoramic Views", "Custom Configurations"],
+    image: "../assets/product/combination-windows-01.webp",
+    thumbImages: ["../assets/product/combination-windows-01.webp", "../assets/product/combination-windows-02.webp", "../assets/product/combination-windows-03.webp"],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "Fixed + Sliding", sub: "2 Panel" },
+      { label: "Fixed + Casement", sub: "2 Panel" },
+      { label: "Sliding + Fixed", sub: "3 Panel" },
+      { label: "Bay + Fixed", sub: "Combination" },
+      { label: "Full-Width", sub: "Fixed + Ventilator" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    keyFeatures: [
+      { icon: "fas fa-th-large", title: "Modular Design System", text: "" },
+      { icon: "fas fa-expand-arrows-alt", title: "Panoramic Views", text: "" },
+      { icon: "fas fa-wind", title: "Flexible Ventilation", text: "" },
+      { icon: "fas fa-tools", title: "Custom Configurations", text: "" }
+    ],
+    faqs: [
+      { q: "What is a combination window?", a: "Combination windows merge two or more window types — such as fixed, sliding, and casement — into one integrated unit for maximum functionality and aesthetics." },
+      { q: "Can I create a custom combination layout?", a: "Yes, we design fully custom combination configurations to suit your wall openings, ventilation needs, and architectural preferences." },
+      { q: "Are combination windows more expensive?", a: "Combination windows may cost slightly more due to their complexity, but they offer superior functionality and design value in return." },
+      { q: "What sizes are available?", a: "Any size. Combination windows are fully custom-manufactured for your specific opening, from compact bathroom windows to large living area panoramic units." },
+      { q: "How are combination windows installed?", a: "They are installed as a single factory-assembled unit, ensuring perfect alignment and weatherproofing between all the joined window elements." },
+      { q: "What glass options work best?", a: "Double-glazed toughened glass is most popular for combination windows, offering safety, thermal insulation, and noise reduction in one." },
+      { q: "Can I add ventilators at the top?", a: "Yes, top ventilator panels are a popular addition to combination windows, providing continuous low-level ventilation while keeping the main glazing clear." },
+      { q: "How do I clean a combination window?", a: "Each section is cleaned according to its type. Use a soft cloth and mild detergent for the frame, and a glass cleaner or squeegee for the glass panels." }
+    ],
+    related: [1, 2, 5]
+  },
+  5: {
+    id: 5,
+    name: "Villa Windows",
+    category: "UPVC Windows",
+    description: "Premium large-format uPVC windows crafted for villas and luxury residences, offering grand proportions, bespoke profiles, and superior thermal performance.",
+    features: ["Premium Profiles", "Large Format Available", "Triple Glazing Option", "Noise Cancellation", "Luxury Finish Options"],
+    image: null,
+    thumbImages: [null, null, null, null],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "Single Casement", sub: "Premium Profile" },
+      { label: "Double Casement", sub: "Premium Profile" },
+      { label: "Lift & Slide", sub: "Large Format" },
+      { label: "Tilt & Turn", sub: "Premium" },
+      { label: "Fixed Picture", sub: "Panoramic" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    keyFeatures: [
+      { icon: "fas fa-gem", title: "Luxury Premium Profiles", text: "" },
+      { icon: "fas fa-ruler-combined", title: "Large Format Available", text: "" },
+      { icon: "fas fa-snowflake", title: "Triple Glazing Option", text: "" },
+      { icon: "fas fa-volume-off", title: "Superior Noise Cancellation", text: "" }
+    ],
+    faqs: [
+      { q: "What makes villa windows different?", a: "Villa windows use wider, thicker premium profiles with extra chambers for superior insulation, and are available in much larger sizes than standard windows." },
+      { q: "Is triple glazing available?", a: "Yes, triple glazing is available for our villa window range, providing the highest levels of thermal and acoustic insulation for premium properties." },
+      { q: "What hardware is used?", a: "We use European-grade stainless steel and zinc alloy hardware for villa windows, offering both aesthetic elegance and long-term durability." },
+      { q: "Can I get custom color profiles?", a: "Yes, choose from solid colors, woodgrain foils, and premium metallic finishes to perfectly complement your villa's interior and exterior design scheme." },
+      { q: "Are lift & slide doors included?", a: "Lift and slide patio doors with the same premium profiles as villa windows are available as a complementary option for seamless indoor-outdoor living." },
+      { q: "What is the maximum size available?", a: "Individual panels up to 2.4m x 2.4m can be manufactured, with combination systems going even wider for dramatic architectural openings." },
+      { q: "Do villa windows require special maintenance?", a: "No special maintenance is required. The high-quality uPVC and hardware used means periodic cleaning and annual hardware lubrication is all that's needed." },
+      { q: "What warranty is provided?", a: "Our villa window range comes with a 10-year structural warranty on profiles and a 5-year warranty on hardware and glazing seals." }
+    ],
+    related: [2, 4, 6]
+  },
+  6: {
+    id: 6,
+    name: "Tilt & Turn Windows",
+    category: "UPVC Windows",
+    description: "Innovative dual-function windows that tilt inward at the top for ventilation or turn fully inward for easy cleaning and maximum airflow.",
+    features: ["Dual Opening Function", "Easy Inside Cleaning", "Child-Safe Tilt Mode", "Excellent Sealing", "European Engineering"],
+    image: null,
+    thumbImages: [null, null, null, null],
+    stats: { excellence: "8+", customers: "5000+", quality: "100%", support: "24/7" },
+    options: [
+      { label: "Single Sash", sub: "Tilt & Turn" },
+      { label: "Double Sash", sub: "Tilt & Turn" },
+      { label: "Tilt Only", sub: "Fixed + Tilt" },
+      { label: "Large Format", sub: "Single Sash" },
+      { label: "Combination", sub: "Tilt + Fixed" },
+    ],
+    customise: ["Color / Lamination", "Glass", "Hardware", "Mesh / Grill"],
+    keyFeatures: [
+      { icon: "fas fa-sync-alt", title: "Dual Function Operation", text: "" },
+      { icon: "fas fa-child", title: "Child Safety Tilt Mode", text: "" },
+      { icon: "fas fa-broom", title: "Easy Interior Cleaning", text: "" },
+      { icon: "fas fa-shield-alt", title: "European Certified Hardware", text: "" }
+    ],
+    faqs: [
+      { q: "How does a tilt & turn window work?", a: "A single handle controls two opening positions: turn 90° to open inward like a casement for full ventilation, or turn 180° to tilt the top inward for secure ventilation." },
+      { q: "Why choose tilt & turn over sliding?", a: "Tilt & turn windows offer superior sealing, easier cleaning from inside, better security, and the child-safe tilt mode makes them ideal for family homes." },
+      { q: "Are they safe for children?", a: "Yes! The tilt mode opens only 10-15cm at the top, which prevents children from climbing out while still allowing fresh air into the room." },
+      { q: "Can I clean them from inside?", a: "Yes, the full inward-turn position rotates the sash 90° inward, allowing you to clean both faces of the glass safely from inside your home." },
+      { q: "What is the handle position for each mode?", a: "Handle horizontal = closed. Handle pointing up = tilt mode (top opens inward). Handle pointing down or horizontal (opposite) = turn mode (full inward opening)." },
+      { q: "Are tilt & turn windows good for high floors?", a: "Absolutely. They are the preferred choice for apartments and high-rise buildings in Europe precisely because they allow safe ventilation and inside cleaning." },
+      { q: "What maintenance do they require?", a: "Lubricate the multi-point locking mechanism and hinges once a year, and ensure the drainage channels are clear. The hardware is designed for 10,000+ operation cycles." },
+      { q: "Do they provide good acoustic insulation?", a: "Yes. When closed, the multi-point locking system compresses the seal around the full perimeter, providing excellent acoustic and thermal insulation." }
+    ],
+    related: [1, 2, 5]
+  }
+};
+
+/* =====================================================
+   URL PARAM BASED ROUTING
+   e.g.  ?id=1  =>  Product 1
+   ===================================================== */
+function getProductIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get('id')) || 1;
+  return id;
+}
+
+/* Simulate async API fetch */
+async function fetchProduct(id) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const product = PRODUCTS_DATA[id];
+      if (product) resolve(product);
+      else reject(new Error(`Product with id ${id} not found.`));
+    }, 400);
+  });
+}
+
+/* Fetch related product names */
+function getRelatedProducts(ids) {
+  return ids.map(id => PRODUCTS_DATA[id]).filter(Boolean);
+}
+
+/* Window SVG icon */
+function windowSVG(color = '#d0d0d0') {
+  return `<svg viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="4" y="4" width="72" height="62" rx="3" stroke="${color}" stroke-width="5" fill="none"/>
+    <line x1="40" y1="4" x2="40" y2="66" stroke="${color}" stroke-width="4"/>
+    <line x1="4" y1="35" x2="76" y2="35" stroke="${color}" stroke-width="3"/>
+    <circle cx="40" cy="35" r="4" fill="${color}"/>
+  </svg>`;
+}
+
+/* ── RENDER ── */
+function renderPage(product) {
+  const related = getRelatedProducts(product.related);
+
+  const thumbsHTML = product.thumbImages.map((img, i) => `
+    <div class="thumb ${i===0?'active':''}" onclick="switchThumb(this)">
+      ${img ? `<img src="${img}" alt="thumb">` : `<div class="thumb-placeholder">${windowSVG(i===0?'#F47920':'#ccc')}</div>`}
+    </div>
+  `).join('');
+
+  const optionsHTML = product.options.map((opt, i) => `
+    <div class="option-card ${i===0?'selected':''}" onclick="selectOption(this)">
+      <div class="option-card-img">${windowSVG(i===0?'#F47920':'#aaa')}</div>
+      <h4>${opt.label}</h4>
+      <p>${opt.sub}</p>
+    </div>
+  `).join('');
+
+  const customiseHTML = product.customise.map(label => `
+    <div class="customise-card">
+      <div class="customise-card-img"><i class="fas fa-layer-group" style="font-size:44px;color:#ccc;"></i></div>
+      <h4>${label}</h4>
+    </div>
+  `).join('');
+
+  const keyFeaturesHTML = product.keyFeatures.map(kf => `
+    <div class="keyfeature-item">
+      <div class="keyfeature-icon"><i class="${kf.icon}"></i></div>
+      <div class="keyfeature-text"><h4>${kf.title}</h4>${kf.text?`<p>${kf.text}</p>`:''}</div>
+    </div>
+  `).join('');
+
+  const faqsHTML = product.faqs.map((faq, i) => `
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span>${faq.q}</span>
+        <i class="fas ${i===0?'fa-minus':'fa-plus'}"></i>
+      </div>
+      <div class="faq-a ${i===0?'open':''}">${faq.a}</div>
+    </div>
+  `).join('');
+
+  const relatedHTML = related.map(rp => `
+    <div class="related-card" onclick="window.location.href='?id=${rp.id}'">
+      <div class="related-card-img"><img src="${rp.image}"></div>
+      <h4>${rp.name}</h4>
+    </div>
+  `).join('');
+
+  const html = `
+    <!-- breadcrumbs -->
+    <div class="breadcrumbs">
+      <a href="#">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <a href="#">Our Products</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>${product.name}</span>
+    </div>
+
+    <!-- PRODUCT HERO -->
+    <div class="product-hero">
+      <div class="gallery-wrap">
+        <div class="thumbs">${thumbsHTML}</div>
+        <div class="main-img-wrap" id="main-img">
+          <div class="main-img-placeholder"><img src="${product.image}" alt="main"></div>
+        </div>
+      </div>
+      <div class="product-info">
+        <h1>${product.name}</h1>
+        <p class="desc">${product.description}</p>
+        <ul class="features-list">
+          ${product.features.map(f=>`<li><i class="fas fa-check-circle"></i>${f}</li>`).join('')}
+        </ul>
+        <div class="product-btns">
+          <button class="btn-primary">Get A Quote <i class="fas fa-arrow-right"></i></button>
+          <div style="display:flex;gap:12px;">
+          <button class="btn-secondary"><i class="fas fa-download"></i> Download Brochure</button>
+          <!-- Review Button -->
+<button class="review-btn" onclick="openReviewPopup()">
+    Leave A Review
+</button>
+</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-award"></i></div>
+          <div class="stat-value">${product.stats.excellence}</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-value">${product.stats.customers}</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="stat-value">${product.stats.quality}</div>
+          <div class="stat-label">Quality Products</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fas fa-headset"></i></div>
+          <div class="stat-value">${product.stats.support}</div>
+          <div class="stat-label">Customer Support</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTIONS -->
+    <section class="section options-section">
+      <div class="section-inner">
+        <div class="section-title">UPVC ${product.name.toUpperCase()} OPTIONS TO CHOOSE FROM</div>
+        <div class="options-carousel-wrap">
+          <button class="carousel-btn" onclick="scrollCarousel('opts-carousel', -300)"><i class="fas fa-chevron-left"></i></button>
+          <div class="options-carousel" id="opts-carousel">${optionsHTML}</div>
+          <button class="carousel-btn" onclick="scrollCarousel('opts-carousel', 300)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMISE -->
+    <section class="section customise-section">
+      <div class="section-inner">
+        <div class="section-title">CUSTOMISE YOUR UPVC ${product.name.toUpperCase()}</div>
+        <p style="text-align:center;color:var(--text-mid);font-size:14px;margin-bottom:28px;">Choose the perfect combination to match your style and requirements.</p>
+        <div class="customise-grid">${customiseHTML}</div>
+      </div>
+    </section>
+
+    <!-- KEY FEATURES -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title">KEY FEATURES</div>
+        <div class="keyfeatures-grid">${keyFeaturesHTML}</div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+      <div class="section-inner">
+        <div class="section-title">FREQUENTLY ASKED QUESTIONS</div>
+        <div class="faq-grid">${faqsHTML}</div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="section related-section">
+      <div class="section-inner">
+        <div class="section-title">RELATED PRODUCTS</div>
+        <div class="related-carousel-wrap">
+          <button class="carousel-btn" onclick="scrollCarousel('rel-carousel', -300)"><i class="fas fa-chevron-left"></i></button>
+          <div class="related-carousel" id="rel-carousel">${relatedHTML}</div>
+          <button class="carousel-btn" onclick="scrollCarousel('rel-carousel', 300)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+  
+  `;
+
+  document.getElementById('page-content').innerHTML = html;
+  // document.getElementById('site-footer').style.display = 'block';
+  document.title = `${product.name} - Shyama & Company`;
+}
+
+function renderError(msg) {
+  document.getElementById('page-content').innerHTML = `
+    <div class="error-msg">
+      <h2>Product Not Found</h2>
+      <p>${msg}</p>
+      <br>
+      <p>Browse our products:</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+        ${Object.values(PRODUCTS_DATA).map(p=>`<a href="?id=${p.id}" style="background:var(--orange);color:#fff;padding:10px 20px;border-radius:6px;font-weight:600;font-size:14px;">${p.name}</a>`).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('site-footer').style.display = 'block';
+}
+
+/* ── INTERACTIONS ── */
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const icon = el.querySelector('i');
+  const isOpen = answer.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-q i').forEach(i => { i.className = 'fas fa-plus'; });
+  if (!isOpen) {
+    answer.classList.add('open');
+    icon.className = 'fas fa-minus';
+  }
+}
+
+function scrollCarousel(id, amount) {
+  document.getElementById(id).scrollBy({ left: amount, behavior: 'smooth' });
+}
+
+function selectOption(card) {
+  card.closest('.options-carousel').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+}
+
+function switchThumb(thumb) {
+  thumb.closest('.thumbs').querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+     const thumbImg = thumb.querySelector('img').src;
+
+    // Main image update
+    document.getElementById('main-img').innerHTML = `
+        <img src="${thumbImg}" alt="main">
+    `;
+}
+
+/* ── INIT ── */
+(async () => {
+  const id = getProductIdFromUrl();
+  try {
+    const product = await fetchProduct(id);
+    renderPage(product);
+  } catch(e) {
+    renderError(e.message);
+  }
+})();
+</script>
+<script>
+  function openReviewPopup(){
+    document.getElementById("reviewPopup").style.display="flex";
+}
+
+function closeReviewPopup(){
+    document.getElementById("reviewPopup").style.display="none";
+}
+</script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/product.js"></script>
-        <script src="../assets/js/main.js"></script>
+   <script type="module" src="../assets/js/product.js"></script>
+        <!-- <script src="../assets/js/main.js"></script> -->
+        <!-- <script src="../assets/js/product-list.js"></script> -->
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+<script type="module" src="../assets/js/firebase_config.js"></script>
 </body>
 </html>

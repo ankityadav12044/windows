@@ -956,7 +956,7 @@ justify-content: center;
    
     #openMenu{
        display: flex !important;
-        position: absolute;
+        position: relative;
         z-index: 90;
         padding: 10px 5%;
         width: 100%;

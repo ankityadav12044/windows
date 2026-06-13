@@ -66,7 +66,7 @@ document.getElementById("leadBox");
 document
 .getElementById("openLead")
 .onclick = () => {
-
+// alert("working");
     leadBox.classList.add("active");
 
 };

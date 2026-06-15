@@ -19,12 +19,14 @@
     <main class="admin-blog-page">
         <section class="admin-blog-shell">
             <div class="admin-blog-header">
-                <a href="blog.html" class="admin-back-link"><i class="fa-solid fa-arrow-left"></i> Blog Page</a>
+                <!-- <a href="blog.html" class="admin-back-link"><i class="fa-solid fa-arrow-left"></i> Blog Page</a> -->
                 <h1>Admin Blog</h1>
-                <p>Yahan se blog add karein. Publish karte hi blog website ke Blog page par show hoga.</p>
+                <p>Create, update, view, and delete blogs from here. Published blogs will appear on the website.</p>
             </div>
 
             <form id="adminBlogForm" class="admin-blog-form">
+                <input type="hidden" name="blogId" id="adminBlogId">
+
                 <label>
                     Blog Title
                     <input type="text" name="title" placeholder="Example: Best uPVC windows for homes" required>
@@ -47,20 +49,35 @@
 
                 <label>
                     Short Description
-                    <textarea name="excerpt" rows="3" placeholder="Blog card me dikhne wali chhoti description"></textarea>
+                    <textarea name="excerpt" rows="3" placeholder="Short description shown on the blog card"></textarea>
                 </label>
 
                 <label>
                     Full Blog Content
-                    <textarea name="content" rows="10" placeholder="Full blog content yahan likhein" required></textarea>
+                    <textarea name="content" rows="10" placeholder="Write the full blog content here" required></textarea>
                 </label>
 
-                <button id="adminBlogSubmit" type="submit">Publish Blog</button>
+                <div class="admin-form-actions">
+                    <button id="adminBlogSubmit" type="submit">Publish Blog</button>
+                    <button id="adminBlogCancel" class="admin-secondary-btn" type="button" hidden>Cancel Edit</button>
+                </div>
                 <div id="adminBlogStatus" class="admin-status" aria-live="polite"></div>
             </form>
+
+            <div class="admin-blog-list-header">
+                <h2>All Blogs</h2>
+                <button id="adminRefreshBlogs" class="admin-secondary-btn" type="button">
+                    <i class="fa-solid fa-rotate-right"></i> Refresh
+                </button>
+            </div>
+
+            <div id="adminBlogList" class="admin-blog-list">
+                <p class="admin-empty-state">Loading blogs...</p>
+            </div>
         </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../assets/js/admin_blog.js"></script>
 </body>
 

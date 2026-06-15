@@ -1013,68 +1013,8 @@
         </div>
 
         <!-- Blog Cards -->
-        <div class="blog-grid">
-            
-            <!-- Card 1 -->
-            <div class="blog-card">
-                <div class="card-image-wrapper">
-                    <!-- Changed to a window installation image -->
-                    <img src="../assets/img/g5.png" alt="Window Installation">
-                    <span class="date-badge">July 14, 2026</span>
-                </div>
-                <div class="card-contents">
-                    <div class="meta-info">
-                        <span><i class="fa-solid fa-user"></i> By Shyama & Company</span>
-                        <span class="divider">|</span>
-                        <span><i class="fa-solid fa-tag"></i> Installation</span>
-                    </div>
-                    <h3>Step by step guide to perfect window installation</h3>
-                    <p>Learn the best practices for installing new windows to ensure maximum energy efficiency, durability, and natural lighting in your home.</p>
-                    
-                    <a href="#" class="btn-view-now">View Now <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="blog-card">
-                <div class="card-image-wrapper">
-                    <!-- Changed to a modern glass window image -->
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=600" alt="Window Glass Selection">
-                    <span class="date-badge">July 15, 2026</span>
-                </div>
-                <div class="card-contents">
-                    <div class="meta-info">
-                        <span><i class="fa-solid fa-user"></i> By Shyama & Company</span>
-                        <span class="divider">|</span>
-                        <span><i class="fa-solid fa-tag"></i> Glass Types</span>
-                    </div>
-                    <h3>How to choose the perfect glass for your office windows</h3>
-                    <p>Discover the differences between double-pane, tempered, and tinted glass to make the best architectural choice for your workspace.</p>
-                    
-                    <a href="#" class="btn-view-now">View Now <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="blog-card">
-                <div class="card-image-wrapper">
-                    <!-- Changed to a window maintenance/repair image -->
-                    <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?auto=format&fit=crop&q=80&w=600" alt="Window Repair">
-                    <span class="date-badge">July 16, 2026</span>
-                </div>
-                <div class="card-contents">
-                    <div class="meta-info">
-                        <span><i class="fa-solid fa-user"></i> By Shyama & Company</span>
-                        <span class="divider">|</span>
-                        <span><i class="fa-solid fa-tag"></i> Maintenance</span>
-                    </div>
-                    <h3>Signs it's time to replace or repair your old windows</h3>
-                    <p>Drafts, condensation, and high energy bills are clear indicators. Find out when a simple repair or a full window replacement is necessary.</p>
-                    
-                    <a href="#" class="btn-view-now">View Now <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-
+        <div class="blog-grid" id="blogGrid" data-limit="3">
+            <p class="blog-loading">Loading blogs...</p>
         </div>
     </section>
 
@@ -1353,6 +1293,7 @@
     <!-- ✅ Tumhara JS (ALWAYS last) -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/header.js"></script>
+    <script type="module" src="../assets/js/blogs.js"></script>
     <script  type="module" src="../assets/js/testimonial.js"></script>
     <script src="../assets/js/showroom.js"></script> 
 <script>

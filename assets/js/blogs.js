@@ -7,6 +7,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const blogGrid = document.getElementById("blogGrid");
+const blogLimit = Number(blogGrid?.dataset.limit || 0);
 
 const fallbackBlogs = [
     {
@@ -57,7 +58,9 @@ const formatDate = (timestamp, fallback = "New Blog") => {
 };
 
 const renderBlogs = (blogs) => {
-    blogGrid.innerHTML = blogs.map((blog) => `
+    const visibleBlogs = blogLimit > 0 ? blogs.slice(0, blogLimit) : blogs;
+
+    blogGrid.innerHTML = visibleBlogs.map((blog) => `
         <div class="blog-card">
             <div class="card-image-wrapper">
                 <img src="${escapeHtml(blog.imageUrl || "../assets/img/blog.png")}" alt="${escapeHtml(blog.title)}">

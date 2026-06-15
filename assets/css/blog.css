@@ -114,6 +114,14 @@
             padding-bottom: 15px;
         }
 
+        .blog-loading {
+            grid-column: 1 / -1;
+            color: var(--text-gray);
+            font-size: 18px;
+            padding: 40px 0;
+            text-align: center;
+        }
+
         .blog-card {
     background-color: #fffdfd;
     border-radius: 24px;
@@ -416,4 +424,125 @@
     height:90px;
     border-radius:15px;
     object-fit:cover;
+}
+
+.admin-blog-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 50px 5%;
+    font-family: var(--main-font);
+}
+
+.admin-blog-shell {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    padding: 35px;
+}
+
+.admin-blog-header {
+    margin-bottom: 28px;
+}
+
+.admin-back-link {
+    color: var(--primary-orange);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.admin-blog-header h1 {
+    color: var(--dark-blue);
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.admin-blog-header p {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.admin-blog-form {
+    display: grid;
+    gap: 18px;
+}
+
+.admin-blog-form label {
+    color: var(--dark-blue);
+    display: grid;
+    font-size: 15px;
+    font-weight: 700;
+    gap: 8px;
+}
+
+.admin-blog-form input,
+.admin-blog-form textarea {
+    border: 1px solid #dfe4ef;
+    border-radius: 10px;
+    color: #16213e;
+    font: inherit;
+    outline: none;
+    padding: 14px 16px;
+    width: 100%;
+}
+
+.admin-blog-form input:focus,
+.admin-blog-form textarea:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.14);
+}
+
+.admin-blog-form button {
+    align-items: center;
+    background: var(--primary-orange);
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-weight: 800;
+    justify-content: center;
+    justify-self: start;
+    min-width: 170px;
+    padding: 14px 28px;
+}
+
+.admin-blog-form button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.admin-status {
+    color: var(--text-gray);
+    font-size: 15px;
+    min-height: 24px;
+}
+
+.admin-status.success {
+    color: #168a3a;
+}
+
+.admin-status.error {
+    color: #c83232;
+}
+
+.admin-status.info {
+    color: var(--dark-blue);
+}
+
+@media (max-width: 768px) {
+    .admin-blog-shell {
+        padding: 24px;
+    }
+
+    .admin-blog-header h1 {
+        font-size: 30px;
+    }
 }

@@ -6,6 +6,10 @@ import {
     getDatabase
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
+import {
+    getFirestore
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCJQ2ZIRS_zUWCQTxLedaxHnHjtF1OTl8M",
     authDomain: "shyamacompany-a1bcc.firebaseapp.com",
@@ -18,5 +22,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const firestore = getFirestore(app);
 
-export { db };
+export { db, firestore };

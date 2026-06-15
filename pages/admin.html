@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Blog</title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="admin-blog-page">
+        <section class="admin-blog-shell">
+            <div class="admin-blog-header">
+                <a href="blog.html" class="admin-back-link"><i class="fa-solid fa-arrow-left"></i> Blog Page</a>
+                <h1>Admin Blog</h1>
+                <p>Yahan se blog add karein. Publish karte hi blog website ke Blog page par show hoga.</p>
+            </div>
+
+            <form id="adminBlogForm" class="admin-blog-form">
+                <label>
+                    Blog Title
+                    <input type="text" name="title" placeholder="Example: Best uPVC windows for homes" required>
+                </label>
+
+                <label>
+                    Category
+                    <input type="text" name="category" placeholder="Installation, Maintenance, Glass Types" required>
+                </label>
+
+                <label>
+                    Author
+                    <input type="text" name="author" value="Shyama & Company">
+                </label>
+
+                <label>
+                    Image URL
+                    <input type="url" name="imageUrl" placeholder="https://example.com/blog-image.jpg">
+                </label>
+
+                <label>
+                    Short Description
+                    <textarea name="excerpt" rows="3" placeholder="Blog card me dikhne wali chhoti description"></textarea>
+                </label>
+
+                <label>
+                    Full Blog Content
+                    <textarea name="content" rows="10" placeholder="Full blog content yahan likhein" required></textarea>
+                </label>
+
+                <button id="adminBlogSubmit" type="submit">Publish Blog</button>
+                <div id="adminBlogStatus" class="admin-status" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="../assets/js/admin_blog.js"></script>
+</body>
+
+</html>

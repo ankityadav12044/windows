@@ -179,7 +179,7 @@
             Home / Blog / uPVC Windows
         </span>
 
-        <h1>
+        <h1 id="blogDetailTitle">
             Why uPVC Windows Are Best For Modern Homes
         </h1>
 
@@ -187,17 +187,17 @@
 
             <span>
                 <i class="fa-solid fa-user"></i>
-                Admin
+                <span id="blogDetailAuthor">Admin</span>
             </span>
 
             <span>
                 <i class="fa-solid fa-calendar"></i>
-                20 May 2026
+                <span id="blogDetailDate">20 May 2026</span>
             </span>
 
             <span>
-                <i class="fa-solid fa-comments"></i>
-                12 Comments
+                <i class="fa-solid fa-tag"></i>
+                <span id="blogDetailCategory">uPVC Windows</span>
             </span>
 
         </div>
@@ -213,32 +213,11 @@
     <!-- LEFT -->
     <div class="blog_content">
 
-        <img src="blog.jpg" alt="">
+        <img id="blogDetailImage" src="../assets/img/blog.png" alt="Blog">
 
-        <h2>
-            Premium uPVC Window Solutions
-        </h2>
-
-        <p>
-            uPVC windows are becoming the top choice for modern homes due to their durability, energy efficiency and elegant appearance.
-        </p>
-
-        <blockquote>
-            “Modern windows improve comfort, security and reduce electricity costs.”
-        </blockquote>
-
-        <h3>
-            Benefits Of uPVC Windows
-        </h3>
-
-        <ul>
-
-            <li>Weather Resistant</li>
-            <li>Sound Proof</li>
-            <li>Low Maintenance</li>
-            <li>Energy Efficient</li>
-
-        </ul>
+        <div id="blogDetailContent">
+            <p>Loading blog...</p>
+        </div>
 
     </div>
 
@@ -517,6 +496,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/header.js"></script>
         <script src="../assets/js/main.js"></script>
+        <script type="module" src="../assets/js/blog_detail.js"></script>
 
 
 </body>

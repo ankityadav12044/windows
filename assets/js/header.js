@@ -104,7 +104,7 @@ form.addEventListener("submit", function(e) {
 
 formData.append("mailid", "ankityadav12044@gmail.com");
 
-fetch("https://dbifashion.dbidemo.online/backend/dashboard/frontendapi/send_mail.php", {
+fetch("https://digitalbrightindia.com/ecommerce_fashion/dbifashion/backend/dashboard/frontendapi/send_mail.php", {
     method: "POST",
     body: formData
 })

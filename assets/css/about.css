@@ -202,6 +202,7 @@
     justify-content:space-between;
     align-items:center;
     gap:70px;
+    padding: 25px 5%;
 }
 
 :root{

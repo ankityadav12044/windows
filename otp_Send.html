@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple OTP Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* BODY */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f6fa;
+}
+
+/* CARD */
+.box {
+    width: 320px;
+    padding: 25px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #4facfe;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b8eea;
+}
+
+/* MESSAGE */
+.msg {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>OTP Login</h2>
+
+    <input type="text" id="phone" placeholder="Enter Mobile Number">
+    <button onclick="sendOtp()">Send OTP</button>
+
+    <div class="msg" id="msg"></div>
+</div>
+
+<!-- OTP MODAL -->
+<div class="modal" id="otpModal">
+    <div class="modal-box">
+        <span class="close" onclick="closeModal()">✖</span>
+        <h3>Enter OTP</h3>
+
+        <input type="text" id="otp" placeholder="Enter OTP">
+        <button onclick="verifyOtp()">Verify</button>
+
+        <div class="msg" id="otpMsg"></div>
+    </div>
+</div>
+
+<script>
+
+const API = "https://digitalbrightindia.com/sms/textbee_otp.php";
+
+function showMsg(id, text, color="green") {
+    let msg = document.getElementById(id);
+    msg.innerText = text;
+    msg.style.color = color;
+}
+
+// OPEN MODAL
+function openModal() {
+    document.getElementById("otpModal").style.display = "flex";
+}
+
+// CLOSE MODAL
+function closeModal() {
+    document.getElementById("otpModal").style.display = "none";
+}
+
+// SEND OTP
+function sendOtp() {
+    let phone = document.getElementById("phone").value;
+
+    if (!phone) {
+        showMsg("msg", "Enter mobile number", "red");
+        return;
+    }
+
+    fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `type=sendOtp&phone=${phone}`,
+        credentials: "include"
+    })
+    .then(res => res.json())
+    .then(data => {
+        showMsg("msg", data.message, data.status ? "green" : "red");
+
+        if (data.status) {
+            openModal(); // 👉 popup open
+        }
+    })
+    .catch(() => showMsg("msg", "Error sending OTP", "red"));
+}
+
+// VERIFY OTP
+function verifyOtp() {
+    let otp = document.getElementById("otp").value;
+
+    if (!otp) {
+        showMsg("otpMsg", "Enter OTP", "red");
+        return;
+    }
+
+    fetch(API, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `type=verifyOtp&otp=${otp}`,
+        credentials: "include"
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        if (data.status == 1) {
+            showMsg("otpMsg", "Login Successful 🚀", "green");
+            setTimeout(() => closeModal(), 1000);
+        } else {
+            showMsg("otpMsg", data.message, "red");
+        }
+
+    })
+    .catch(() => showMsg("otpMsg", "Verification failed", "red"));
+}
+
+</script>
+
+</body>
+</html>
